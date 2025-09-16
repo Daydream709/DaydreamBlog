@@ -44,6 +44,7 @@ export const ja: Translation = {
 	[Key.license]: "ライセンス",
 	[Key.friends]: "友達",
 	[Key.anime]: "アニメ",
+	[Key.lightnovel]: "ライトノベル",
 	[Key.diary]: "つぶやき",
 
 	// 番剧页面
@@ -59,6 +60,20 @@ export const ja: Translation = {
 	[Key.animeStatusPlanned]: "予定",
 	[Key.animeYear]: "年",
 	[Key.animeStudio]: "制作会社",
+
+	// ライトノベルページ
+	[Key.lightnovelTitle]: "私のライトノベルコレクション",
+	[Key.lightnovelSubtitle]: "私のライトノベル旅行記録",
+	[Key.lightnovelList]: "ライトノベルリスト",
+	[Key.lightnovelTotal]: "合計",
+	[Key.lightnovelWatching]: "読書中",
+	[Key.lightnovelCompleted]: "読了",
+	[Key.lightnovelAvgRating]: "平均評価",
+	[Key.lightnovelStatusWatching]: "読書中",
+	[Key.lightnovelStatusCompleted]: "読了",
+	[Key.lightnovelStatusPlanned]: "予定",
+	[Key.lightnovelYear]: "年",
+	[Key.lightnovelStudio]: "著者",
 
 	// 短文页面
 	[Key.diarySubtitle]: "いつでもどこでも、生活をシェア",

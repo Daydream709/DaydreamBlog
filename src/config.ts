@@ -200,6 +200,16 @@ export const navBarConfig: NavBarConfig = {
 					url: "/albums/",
 					icon: "material-symbols:photo-library",
 				},
+				{
+					name: "轻小说",
+					url: "/lightnovel/",
+					icon: "material-symbols:photo-library",
+				},
+				{
+					name: "test",
+					url: "/test/",
+					icon: "material-symbols:photo-library",
+				},
 			],
 		},
 		{
@@ -276,7 +286,7 @@ export const licenseConfig: LicenseConfig = {
 export const expressiveCodeConfig: ExpressiveCodeConfig = {
 	// 注意：某些样式（如背景颜色）已被覆盖，请参阅 astro.config.mjs 文件。
 	// 请选择深色主题，因为此博客主题目前仅支持深色背景
-	theme: "one-dark",
+	theme: "one-dark-pro",
 };
 
 export const commentConfig: CommentConfig = {
@@ -289,8 +299,8 @@ export const commentConfig: CommentConfig = {
 
 export const announcementConfig: AnnouncementConfig = {
 	title: "公告", // 公告标题
-	content: "这是公告测试", // 公告内容
-	closable: true, // 允许用户关闭公告
+	content: "这是new公告测试", // 公告内容
+	closable: false, // 允许用户关闭公告
 	link: {
 		enable: true, // 启用链接
 		text: "了解更多", // 链接文本

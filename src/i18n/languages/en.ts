@@ -44,6 +44,7 @@ export const en: Translation = {
 	[Key.license]: "License",
 	[Key.friends]: "Friends",
 	[Key.anime]: "Anime",
+	[Key.lightnovel]: "Lightnovel",
 	[Key.diary]: "Moments",
 
 	// 番剧页面
@@ -59,6 +60,20 @@ export const en: Translation = {
 	[Key.animeStatusPlanned]: "Planned",
 	[Key.animeYear]: "Year",
 	[Key.animeStudio]: "Studio",
+
+	// Light Novel Page
+	[Key.lightnovelTitle]: "My Light Novel Collection",
+	[Key.lightnovelSubtitle]: "Documenting my light novel journey",
+	[Key.lightnovelList]: "Light Novel List",
+	[Key.lightnovelTotal]: "Total",
+	[Key.lightnovelWatching]: "Reading",
+	[Key.lightnovelCompleted]: "Completed",
+	[Key.lightnovelAvgRating]: "Avg Rating",
+	[Key.lightnovelStatusWatching]: "Reading",
+	[Key.lightnovelStatusCompleted]: "Completed",
+	[Key.lightnovelStatusPlanned]: "Planned",
+	[Key.lightnovelYear]: "Year",
+	[Key.lightnovelStudio]: "Author",
 
 	// 短文页面
 	[Key.diarySubtitle]: "Share life anytime, anywhere",

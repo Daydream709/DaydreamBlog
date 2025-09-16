@@ -44,8 +44,9 @@ export const zh_CN: Translation = {
 	[Key.license]: "许可协议",
 	[Key.anime]: "追番",
 	[Key.diary]: "日记",
+	[Key.lightnovel]: "轻小说",
 
-	// 番剧页面
+	// 轻小说页面
 	[Key.animeTitle]: "我的追番记录",
 	[Key.animeSubtitle]: "记录我的二次元之旅",
 	[Key.animeList]: "追番列表",
@@ -58,6 +59,22 @@ export const zh_CN: Translation = {
 	[Key.animeStatusPlanned]: "计划中",
 	[Key.animeYear]: "年份",
 	[Key.animeStudio]: "制作",
+
+	// 番剧页面
+	[Key.lightnovelTitle]: "我的轻小说阅读记录",
+	[Key.lightnovelSubtitle]: "记录我的轻小说之旅",
+	[Key.lightnovelList]: "小说列表",
+	[Key.lightnovelTotal]: "总数",
+	[Key.lightnovelWatching]: "阅读中",
+	[Key.lightnovelCompleted]: "已读完",
+	[Key.lightnovelAvgRating]: "平均评分",
+	[Key.lightnovelStatusWatching]: "阅读中",
+	[Key.lightnovelStatusCompleted]: "已读完",
+	[Key.lightnovelStatusPlanned]: "计划中",
+	[Key.lightnovelYear]: "年份",
+	[Key.lightnovelStudio]: "作者",
+
+	
 
 	// 短文页面
 	[Key.diarySubtitle]: "随时随地，分享生活",

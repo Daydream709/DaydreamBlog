@@ -41,7 +41,10 @@ enum I18nKey {
 	license = "license",
 	friends = "friends",
 	anime = "anime",
+	lightnovel = "lightnovel",
 	diary = "diary",
+	
+
 
 	// 番剧页面
 	animeTitle = "animeTitle",
@@ -56,6 +59,20 @@ enum I18nKey {
 	animeStatusPlanned = "animeStatusPlanned",
 	animeYear = "animeYear",
 	animeStudio = "animeStudio",
+
+	// 轻小说页面
+	lightnovelTitle = "lightnovelTitle",
+	lightnovelSubtitle = "lightnovelSubtitle",
+	lightnovelList = "lightnovelList",
+	lightnovelTotal = "lightnovelTotal",
+	lightnovelWatching = "lightnovelWatching",
+	lightnovelCompleted = "lightnovelCompleted",
+	lightnovelAvgRating = "lightnovelAvgRating",
+	lightnovelStatusWatching = "lightnovelStatusWatching",
+	lightnovelStatusCompleted = "lightnovelStatusCompleted",
+	lightnovelStatusPlanned = "lightnovelStatusPlanned",
+	lightnovelYear = "lightnovelYear",
+	lightnovelStudio = "lightnovelStudio",
 
 	// 短文页面
 	diarySubtitle = "diarySubtitle",
