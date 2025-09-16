@@ -115,7 +115,7 @@ const stats = {
 							<div class="group relative bg-[var(--card-bg)] border border-[var(--line-divider)] rounded-[var(--radius-large)] overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
 								<!-- 封面区域 - 竖屏比例 -->
 								<div class="relative aspect-[2/3] overflow-hidden">
-									<a href={anime.link} target="_blank" rel="noopener noreferrer" class="block w-full h-full">
+									<a href={`/anime/${anime.id}/`} class="block w-full h-full">
 										<ImageWrapper 
 											src={anime.cover} 
 											alt={anime.title}
