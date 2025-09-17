@@ -12,16 +12,16 @@ interface Props {
 }
 
 export async function getStaticPaths() {
-  return animeList.map(anime => ({
+  return animeList.map((anime) => ({
     params: { id: anime.id },
   }));
 }
 
 const { id } = Astro.params;
-const anime = animeList.find(item => item.id === id);
+const anime = animeList.find((item) => item.id === id);
 
 if (!anime) {
-  return Astro.redirect('/404');
+  return Astro.redirect("/404");
 }
 
 // 获取状态的翻译文本和样式
@@ -30,22 +30,19 @@ function getStatusInfo(status: string) {
     case "watching":
       return {
         text: i18n(I18nKey.animeStatusWatching),
-        class:
-          "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300",
+        class: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300",
         icon: "▶",
       };
     case "completed":
       return {
         text: i18n(I18nKey.animeStatusCompleted),
-        class:
-          "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300",
+        class: "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300",
         icon: "✓",
       };
     case "planned":
       return {
         text: i18n(I18nKey.animeStatusPlanned),
-        class:
-          "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300",
+        class: "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300",
         icon: "⏰",
       };
     default:
@@ -69,7 +66,7 @@ const progressPercent = anime.totalEpisodes ? (anime.progress / anime.totalEpiso
         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
         </svg>
-        {i18n(I18nKey.backToHome)} {i18n(I18nKey.animeList)}
+        {i18n(I18nKey.backtoanimelist)}
       </a>
     </div>
 
@@ -77,22 +74,20 @@ const progressPercent = anime.totalEpisodes ? (anime.progress / anime.totalEpiso
       <!-- 左侧封面 -->
       <div class="lg:col-span-1">
         <div class="relative overflow-hidden rounded-[var(--radius-large)] shadow-lg">
-          <ImageWrapper 
-            src={anime.cover} 
-            alt={anime.title}
-            class="w-full h-auto object-cover"
-          />
-          
+          <ImageWrapper src={anime.cover} alt={anime.title} class="w-full h-auto object-cover" />
+
           <!-- 状态标签 -->
           <div class={`absolute top-4 left-4 px-3 py-1.5 rounded-md text-sm font-medium ${statusInfo.class} flex items-center gap-1`}>
             <span>{statusInfo.icon}</span>
             <span>{statusInfo.text}</span>
           </div>
-          
+
           <!-- 评分 -->
           <div class="absolute top-4 right-4 bg-black/70 text-white px-2 py-1 rounded-md text-sm font-medium flex items-center gap-1">
             <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              <path
+                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+              ></path>
             </svg>
             <span>{anime.rating}</span>
           </div>
@@ -120,7 +115,7 @@ const progressPercent = anime.totalEpisodes ? (anime.progress / anime.totalEpiso
               <span class="text-black/90 dark:text-white/90 font-medium">{anime.episodes}</span>
             </div>
           </div>
-          
+
           <div class="space-y-4">
             <div class="flex justify-between border-b border-[var(--line-divider)] pb-2">
               <span class="text-black/50 dark:text-white/50">Start Date</span>
@@ -128,7 +123,7 @@ const progressPercent = anime.totalEpisodes ? (anime.progress / anime.totalEpiso
             </div>
             <div class="flex justify-between border-b border-[var(--line-divider)] pb-2">
               <span class="text-black/50 dark:text-white/50">End Date</span>
-              <span class="text-black/90 dark:text-white/90 font-medium">{anime.endDate || 'Ongoing'}</span>
+              <span class="text-black/90 dark:text-white/90 font-medium">{anime.endDate || "Ongoing"}</span>
             </div>
             <div class="flex justify-between border-b border-[var(--line-divider)] pb-2">
               <span class="text-black/50 dark:text-white/50">Progress</span>
@@ -138,44 +133,50 @@ const progressPercent = anime.totalEpisodes ? (anime.progress / anime.totalEpiso
         </div>
 
         <!-- 进度条 -->
-        {anime.status === 'watching' && (
-          <div class="mb-6">
-            <div class="flex justify-between items-center mb-2">
-              <span class="text-black/75 dark:text-white/75 font-medium">Watch Progress</span>
-              <span class="text-[var(--primary)] font-bold">{Math.round(progressPercent)}%</span>
+        {
+          anime.status === "watching" && (
+            <div class="mb-6">
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-black/75 dark:text-white/75 font-medium">Watch Progress</span>
+                <span class="text-[var(--primary)] font-bold">{Math.round(progressPercent)}%</span>
+              </div>
+              <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                <div
+                  class="bg-gradient-to-r from-[var(--primary)] to-[var(--primary-hover)] h-2.5 rounded-full transition-all duration-500"
+                  style={`width: ${progressPercent}%`}
+                />
+              </div>
             </div>
-            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-              <div 
-                class="bg-gradient-to-r from-[var(--primary)] to-[var(--primary-hover)] h-2.5 rounded-full transition-all duration-500" 
-                style={`width: ${progressPercent}%`}
-              ></div>
-            </div>
-          </div>
-        )}
+          )
+        }
 
         <!-- 类型标签 -->
         <div class="mb-6">
           <h3 class="text-lg font-semibold text-black/90 dark:text-white/90 mb-3">Genres</h3>
           <div class="flex flex-wrap gap-2">
-            {anime.genre.map(g => (
-              <span class="px-3 py-1.5 bg-[var(--btn-regular-bg)] text-black/75 dark:text-white/75 rounded-md text-sm font-medium">
-                {g}
-              </span>
-            ))}
+            {
+              anime.genre.map((g) => (
+                <span class="px-3 py-1.5 bg-[var(--btn-regular-bg)] text-black/75 dark:text-white/75 rounded-md text-sm font-medium">{g}</span>
+              ))
+            }
           </div>
         </div>
 
         <!-- 外部链接按钮 -->
         <div class="mt-8">
-          <a 
-            href={anime.link} 
-            target="_blank" 
+          <a
+            href={anime.link}
+            target="_blank"
             rel="noopener noreferrer"
             class="inline-flex items-center px-6 py-3 bg-[var(--primary)] text-white rounded-lg hover:bg-[var(--primary-hover)] transition-colors"
           >
             View on External Site
             <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
             </svg>
           </a>
         </div>

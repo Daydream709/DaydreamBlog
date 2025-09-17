@@ -85,12 +85,15 @@ export const en: Translation = {
 	[Key.diaryHoursAgo]: "hours ago",
 	[Key.diaryDaysAgo]: "days ago",
 
+	//详情页面专用
+	[Key.backtoanimelist]: "Back to Anime List",
+	
 	// 404页面
 	[Key.notFound]: "404",
 	[Key.notFoundTitle]: "Page Not Found",
 	[Key.notFoundDescription]:
 		"Sorry, the page you are looking for doesn't exist or has been moved.",
-	[Key.backToHome]: "Back to Home",
+	
 
 	// Music Player
 	[Key.playlist]: "Playlist",

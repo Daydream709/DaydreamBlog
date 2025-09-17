@@ -85,11 +85,13 @@ export const zh_TW: Translation = {
 	[Key.diaryHoursAgo]: "小時前",
 	[Key.diaryDaysAgo]: "天前",
 
+	//详情页面专用
+	[Key.backtoanimelist]: "返回番劇列表",
 	// 404頁面
 	[Key.notFound]: "404",
 	[Key.notFoundTitle]: "頁面未找到",
 	[Key.notFoundDescription]: "抱歉，您訪問的頁面不存在或已被移動。",
-	[Key.backToHome]: "返回首頁",
+	
 
 	// 音樂播放器
 	[Key.playlist]: "播放清單",

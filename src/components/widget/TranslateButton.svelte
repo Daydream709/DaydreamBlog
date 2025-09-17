@@ -2,7 +2,7 @@
 import Icon from "@iconify/svelte";
 import { onDestroy, onMount } from "svelte";
 import { siteConfig } from "@/config";
-import { getTranslateLanguageFromConfig } from "@/utils/language-utils";
+import { getTranslateLanguageFromConfig, getConfigLanguageFromTranslate } from "@/utils/language-utils";
 
 let isOpen = false;
 let translatePanel: HTMLElement;
@@ -32,8 +32,23 @@ function togglePanel() {
 	}
 }
 
+// 添加i18n语言切换功能
+function switchI18nLanguage(languageCode: string) {
+	// 将translate.js语言代码转换为i18n语言代码
+	const i18nLangCode = getConfigLanguageFromTranslate(languageCode);
+	
+	// 保存语言选择到localStorage
+	localStorage.setItem("i18n-lang", i18nLangCode);
+	
+	// 触发自定义事件通知其他组件语言已更改
+	window.dispatchEvent(new CustomEvent("language-changed", { detail: i18nLangCode }));
+}
+
 async function changeLanguage(languageCode: string) {
 	try {
+		// 同时切换i18n语言环境
+		switchI18nLanguage(languageCode);
+		
 		// 懒加载翻译脚本
 		if (typeof window.loadTranslateScript === 'function') {
 			await window.loadTranslateScript();

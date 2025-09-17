@@ -74,6 +74,9 @@ enum I18nKey {
 	lightnovelYear = "lightnovelYear",
 	lightnovelStudio = "lightnovelStudio",
 
+	// 详情页面专用
+	backtoanimelist = "backtoanimelist",
+
 	// 短文页面
 	diarySubtitle = "diarySubtitle",
 	diaryCount = "diaryCount",
@@ -88,7 +91,7 @@ enum I18nKey {
 	notFound = "notFound",
 	notFoundTitle = "notFoundTitle",
 	notFoundDescription = "notFoundDescription",
-	backToHome = "backToHome",
+	
 
 	// 音乐播放器
 	playlist = "playlist",
