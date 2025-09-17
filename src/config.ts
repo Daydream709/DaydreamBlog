@@ -193,7 +193,6 @@ export const navBarConfig: NavBarConfig = {
 			url: "/content/",
 			icon: "material-symbols:person",
 			children: [
-				LinkPreset.Anime,
 				LinkPreset.Diary,
 				{
 					name: "画廊",
@@ -205,9 +204,10 @@ export const navBarConfig: NavBarConfig = {
 					url: "/lightnovel/",
 					icon: "material-symbols:photo-library",
 				},
+				LinkPreset.Anime,
 				{
-					name: "test",
-					url: "/test/",
+					name: "漫画",
+					url: "/comic/",
 					icon: "material-symbols:photo-library",
 				},
 			],

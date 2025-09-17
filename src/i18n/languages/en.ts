@@ -45,6 +45,7 @@ export const en: Translation = {
 	[Key.friends]: "Friends",
 	[Key.anime]: "Anime",
 	[Key.lightnovel]: "Lightnovel",
+	[Key.comic]: "Comic",
 	[Key.diary]: "Moments",
 
 	// 番剧页面
@@ -73,7 +74,21 @@ export const en: Translation = {
 	[Key.lightnovelStatusCompleted]: "Completed",
 	[Key.lightnovelStatusPlanned]: "Planned",
 	[Key.lightnovelYear]: "Year",
-	[Key.lightnovelStudio]: "Author",
+	[Key.lightnovelAuthor]: "Author",
+
+	// Comic Page
+	[Key.comicTitle]: "My Comic Collection",
+	[Key.comicSubtitle]: "Documenting my comic journey",
+	[Key.comicList]: "Comic List",
+	[Key.comicTotal]: "Total",
+	[Key.comicWatching]: "Reading",
+	[Key.comicCompleted]: "Completed",
+	[Key.comicAvgRating]: "Avg Rating",
+	[Key.comicStatusWatching]: "Reading",
+	[Key.comicStatusCompleted]: "Completed",
+	[Key.comicStatusPlanned]: "Planned",
+	[Key.comicYear]: "Year",
+	[Key.comicAuthor]: "Author",
 
 	// 短文页面
 	[Key.diarySubtitle]: "Share life anytime, anywhere",
@@ -85,9 +100,13 @@ export const en: Translation = {
 	[Key.diaryHoursAgo]: "hours ago",
 	[Key.diaryDaysAgo]: "days ago",
 
-	//详情页面专用
+
+	// Details page specific
 	[Key.backtoanimelist]: "Back to Anime List",
-	
+	[Key.backtolightnovellist]: "Back to Light Novel List",
+	[Key.backtocomiclist]: "Back to Comic List",
+
+
 	// 404页面
 	[Key.notFound]: "404",
 	[Key.notFoundTitle]: "Page Not Found",

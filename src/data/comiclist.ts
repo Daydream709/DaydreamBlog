@@ -1,5 +1,5 @@
 // 动漫列表数据
-export const lightnovelList = [
+export const comicList = [
   {
     id: "lycoris-recoil",
     title: "Lycoris Recoil",

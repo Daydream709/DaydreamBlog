@@ -42,6 +42,7 @@ enum I18nKey {
 	friends = "friends",
 	anime = "anime",
 	lightnovel = "lightnovel",
+	comic = "comic",
 	diary = "diary",
 	
 
@@ -72,11 +73,27 @@ enum I18nKey {
 	lightnovelStatusCompleted = "lightnovelStatusCompleted",
 	lightnovelStatusPlanned = "lightnovelStatusPlanned",
 	lightnovelYear = "lightnovelYear",
-	lightnovelStudio = "lightnovelStudio",
+	lightnovelAuthor = "lightnovelAuthor",
+
+	// 轻小说页面
+	comicTitle = "comicTitle",
+	comicSubtitle = "comicSubtitle",
+	comicList = "comicList",
+	comicTotal = "comicTotal",
+	comicWatching = "comicWatching",
+	comicCompleted = "comicCompleted",
+	comicAvgRating = "comicAvgRating",
+	comicStatusWatching = "comicStatusWatching",
+	comicStatusCompleted = "comicStatusCompleted",
+	comicStatusPlanned = "comicStatusPlanned",
+	comicYear = "comicYear",
+	comicAuthor = "comicAuthor",
 
 	// 详情页面专用
 	backtoanimelist = "backtoanimelist",
-
+	backtolightnovellist = "backtolightnovelList",
+	backtocomiclist = "backtocomicList",
+	
 	// 短文页面
 	diarySubtitle = "diarySubtitle",
 	diaryCount = "diaryCount",

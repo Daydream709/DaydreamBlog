@@ -45,8 +45,9 @@ export const zh_CN: Translation = {
 	[Key.anime]: "追番",
 	[Key.diary]: "日记",
 	[Key.lightnovel]: "轻小说",
+	[Key.comic]: "漫画",
 
-	// 轻小说页面
+	// 番剧页面
 	[Key.animeTitle]: "我的追番记录",
 	[Key.animeSubtitle]: "记录我的二次元之旅",
 	[Key.animeList]: "追番列表",
@@ -60,7 +61,8 @@ export const zh_CN: Translation = {
 	[Key.animeYear]: "年份",
 	[Key.animeStudio]: "制作",
 
-	// 番剧页面
+	
+	// 轻小说页面
 	[Key.lightnovelTitle]: "我的轻小说阅读记录",
 	[Key.lightnovelSubtitle]: "记录我的轻小说之旅",
 	[Key.lightnovelList]: "小说列表",
@@ -72,7 +74,21 @@ export const zh_CN: Translation = {
 	[Key.lightnovelStatusCompleted]: "已读完",
 	[Key.lightnovelStatusPlanned]: "计划中",
 	[Key.lightnovelYear]: "年份",
-	[Key.lightnovelStudio]: "作者",
+	[Key.lightnovelAuthor]: "作者",
+
+	// 漫画页面
+	[Key.comicTitle]: "我的漫画阅读记录",
+	[Key.comicSubtitle]: "记录我的漫画之旅",
+	[Key.comicList]: "漫画列表",
+	[Key.comicTotal]: "总数",
+	[Key.comicWatching]: "阅读中",
+	[Key.comicCompleted]: "已读完",
+	[Key.comicAvgRating]: "平均评分",
+	[Key.comicStatusWatching]: "阅读中",
+	[Key.comicStatusCompleted]: "已读完",
+	[Key.comicStatusPlanned]: "计划中",
+	[Key.comicYear]: "年份",
+	[Key.comicAuthor]: "作者",
 
 	// 短文页面
 	[Key.diarySubtitle]: "随时随地，分享生活",
@@ -88,7 +104,11 @@ export const zh_CN: Translation = {
 	[Key.notFound]: "404",
 	[Key.notFoundTitle]: "页面未找到",
 	[Key.notFoundDescription]: "抱歉，您访问的页面不存在或已被移动。",
+
+	// 详情页专用
 	[Key.backtoanimelist]: "返回番剧列表",
+	[Key.backtolightnovellist]: "返回轻小说列表",
+	[Key.backtocomiclist]: "返回漫画列表",
 
 	// 音乐播放器
 	[Key.playlist]: "播放列表",

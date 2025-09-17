@@ -45,6 +45,7 @@ export const zh_TW: Translation = {
 	[Key.friends]: "友鏈",
 	[Key.anime]: "追番",
 	[Key.lightnovel]: "輕小說",
+	[Key.comic]: "追漫",
 	[Key.diary]: "即刻短文",
 
 	// 番劇頁面
@@ -73,7 +74,21 @@ export const zh_TW: Translation = {
 	[Key.lightnovelStatusCompleted]: "已讀完",
 	[Key.lightnovelStatusPlanned]: "計劃中",
 	[Key.lightnovelYear]: "年份",
-	[Key.lightnovelStudio]: "作者",
+	[Key.lightnovelAuthor]: "作者",
+
+	// 漫畫頁面
+	[Key.comicTitle]: "我的漫畫閱讀記錄",
+	[Key.comicSubtitle]: "記錄我的漫畫之旅",
+	[Key.comicList]: "漫畫列表",
+	[Key.comicTotal]: "總數",
+	[Key.comicWatching]: "閱讀中",
+	[Key.comicCompleted]: "已讀完",
+	[Key.comicAvgRating]: "平均評分",
+	[Key.comicStatusWatching]: "閱讀中",
+	[Key.comicStatusCompleted]: "已讀完",
+	[Key.comicStatusPlanned]: "計劃中",
+	[Key.comicYear]: "年份",
+	[Key.comicAuthor]: "作者",
 
 	// 短文頁面
 	[Key.diarySubtitle]: "隨時隨地，分享生活",
@@ -87,6 +102,9 @@ export const zh_TW: Translation = {
 
 	//详情页面专用
 	[Key.backtoanimelist]: "返回番劇列表",
+	[Key.backtolightnovellist]: "返回輕小說列表",
+	[Key.backtocomiclist]: "返回漫畫列表",
+
 	// 404頁面
 	[Key.notFound]: "404",
 	[Key.notFoundTitle]: "頁面未找到",

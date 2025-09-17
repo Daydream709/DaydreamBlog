@@ -45,6 +45,7 @@ export const ja: Translation = {
 	[Key.friends]: "友達",
 	[Key.anime]: "アニメ",
 	[Key.lightnovel]: "ライトノベル",
+	[Key.comic]: "漫画",
 	[Key.diary]: "つぶやき",
 
 	// 番剧页面
@@ -73,7 +74,22 @@ export const ja: Translation = {
 	[Key.lightnovelStatusCompleted]: "読了",
 	[Key.lightnovelStatusPlanned]: "予定",
 	[Key.lightnovelYear]: "年",
-	[Key.lightnovelStudio]: "著者",
+	[Key.lightnovelAuthor]: "著者",
+
+	// 漫画ページ
+	[Key.comicTitle]: "私の漫画コレクション",
+	[Key.comicSubtitle]: "私の漫画旅行記録",
+	[Key.comicList]: "漫画リスト",
+	[Key.comicTotal]: "合計",
+	[Key.comicWatching]: "読書中",
+	[Key.comicCompleted]: "読了",
+	[Key.comicAvgRating]: "平均評価",
+	[Key.comicStatusWatching]: "読書中",
+	[Key.comicStatusCompleted]: "読了",
+	[Key.comicStatusPlanned]: "予定",
+	[Key.comicYear]: "年",
+	[Key.comicAuthor]: "著者",
+
 
 	// 短文页面
 	[Key.diarySubtitle]: "いつでもどこでも、生活をシェア",
@@ -87,6 +103,10 @@ export const ja: Translation = {
 
 	//详情页面专用
 	[Key.backtoanimelist]: "アニメ一覧に戻る",
+	[Key.backtolightnovellist]: "ライトノベル一覧に戻る",
+	[Key.backtocomiclist]: "漫画一覧に戻る",
+
+
 	// 404ページ
 	[Key.notFound]: "404",
 	[Key.notFoundTitle]: "ページが見つかりません",
