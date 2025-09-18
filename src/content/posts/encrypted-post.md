@@ -6,7 +6,7 @@ encrypted: true
 pinned: true
 password: "123456"
 tags: ["Test", "Encryption"]
-category: "Technology"
+category: Guides
 ---
 
 

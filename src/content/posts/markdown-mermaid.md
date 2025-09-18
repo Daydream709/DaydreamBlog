@@ -4,7 +4,7 @@ published: 2023-10-01
 pinned: false
 description: A simple example of a Markdown blog post with Mermaid.
 tags: [Markdown, Blogging, Mermaid]
-category: Examples
+category: Guides
 draft: false
 ---
 # Complete Guide to Markdown with Mermaid Diagrams

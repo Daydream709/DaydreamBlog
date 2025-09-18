@@ -53,7 +53,7 @@ export const animeList = [
   },
   {
     id: "is-the-order-a-rabbit",
-    title: "Is the Order a Rabbit?",
+    title: "请问你今天要来点兔子吗",
     status: "completed",
     rating: 9.0,
     cover: "assets/anime/tz1.webp",
@@ -70,7 +70,7 @@ export const animeList = [
   },
   {
     id: "the-secret-of-the-magic-girl",
-    title: "The Secret of the Magic Girl",
+    title: "沉默魔女的秘密",
     status: "watching",
     rating: 9.0,
     cover: "assets/anime/cmmn.webp",
