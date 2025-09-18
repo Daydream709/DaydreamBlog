@@ -110,20 +110,13 @@ const progressPercent = comic.totalEpisodes ? (comic.progress / comic.totalEpiso
               <span class="text-black/50 dark:text-white/50">{i18n(I18nKey.comicAuthor)}</span>
               <span class="text-black/90 dark:text-white/90 font-medium">{comic.studio}</span>
             </div>
-            <div class="flex justify-between border-b border-[var(--line-divider)] pb-2">
-              <span class="text-black/50 dark:text-white/50">总卷数</span>
-              <span class="text-black/90 dark:text-white/90 font-medium">{comic.episodes}</span>
-            </div>
+            
           </div>
 
           <div class="space-y-4">
             <div class="flex justify-between border-b border-[var(--line-divider)] pb-2">
-              <span class="text-black/50 dark:text-white/50">起始日期</span>
-              <span class="text-black/90 dark:text-white/90 font-medium">{comic.startDate}</span>
-            </div>
-            <div class="flex justify-between border-b border-[var(--line-divider)] pb-2">
-              <span class="text-black/50 dark:text-white/50">结束日期</span>
-              <span class="text-black/90 dark:text-white/90 font-medium">{comic.endDate || "Ongoing"}</span>
+              <span class="text-black/50 dark:text-white/50">总卷数</span>
+              <span class="text-black/90 dark:text-white/90 font-medium">{comic.episodes}</span>
             </div>
             <div class="flex justify-between border-b border-[var(--line-divider)] pb-2">
               <span class="text-black/50 dark:text-white/50">已看卷数</span>

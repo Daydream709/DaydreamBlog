@@ -109,21 +109,12 @@ const progressPercent = lightnovel.totalEpisodes ? (lightnovel.progress / lightn
             <div class="flex justify-between border-b border-[var(--line-divider)] pb-2">
               <span class="text-black/50 dark:text-white/50">{i18n(I18nKey.lightnovelAuthor)}</span>
               <span class="text-black/90 dark:text-white/90 font-medium">{lightnovel.studio}</span>
-            </div>
+            </div> 
+          </div>
+          <div class="space-y-4">
             <div class="flex justify-between border-b border-[var(--line-divider)] pb-2">
               <span class="text-black/50 dark:text-white/50">总卷数</span>
               <span class="text-black/90 dark:text-white/90 font-medium">{lightnovel.episodes}</span>
-            </div>
-          </div>
-
-          <div class="space-y-4">
-            <div class="flex justify-between border-b border-[var(--line-divider)] pb-2">
-              <span class="text-black/50 dark:text-white/50">起始日期</span>
-              <span class="text-black/90 dark:text-white/90 font-medium">{lightnovel.startDate}</span>
-            </div>
-            <div class="flex justify-between border-b border-[var(--line-divider)] pb-2">
-              <span class="text-black/50 dark:text-white/50">结束日期</span>
-              <span class="text-black/90 dark:text-white/90 font-medium">{lightnovel.endDate || "Ongoing"}</span>
             </div>
             <div class="flex justify-between border-b border-[var(--line-divider)] pb-2">
               <span class="text-black/50 dark:text-white/50">已看卷数</span>

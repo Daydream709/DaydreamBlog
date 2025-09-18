@@ -14,8 +14,6 @@ export const lightnovelList = [
     link: "https://www.bilibili.com/bangumi/media/md28338623",
     progress: 12,
     totalEpisodes: 12,
-    startDate: "2022-07",
-    endDate: "2022-09",
   },
   {
     id: "yowamushi-pedal",
@@ -31,8 +29,6 @@ export const lightnovelList = [
     link: "https://www.bilibili.com/bangumi/media/md2590",
     progress: 8,
     totalEpisodes: 12,
-    startDate: "2015-07",
-    endDate: "2015-09",
   },
   {
     id: "asteroid-in-love",
@@ -48,8 +44,6 @@ export const lightnovelList = [
     link: "https://www.bilibili.com/bangumi/media/md28224128",
     progress: 5,
     totalEpisodes: 12,
-    startDate: "2020-01",
-    endDate: "2020-03",
   },
   {
     id: "is-the-order-a-rabbit",
@@ -65,8 +59,6 @@ export const lightnovelList = [
     link: "https://www.bilibili.com/bangumi/media/md2762",
     progress: 12,
     totalEpisodes: 12,
-    startDate: "2014-04",
-    endDate: "2014-06",
   },
   {
     id: "the-secret-of-the-magic-girl",
@@ -82,7 +74,5 @@ export const lightnovelList = [
     link: "https://www.bilibili.com/bangumi/media/md26625039",
     progress: 8,
     totalEpisodes: 12,
-    startDate: "2025-07",
-    endDate: "2025-10",
   },
 ];
