@@ -57,6 +57,7 @@ export const ja: Translation = {
 	[Key.publishedAt]: "公開日",
 	[Key.license]: "ライセンス",
 	[Key.anime]: "アニメ",
+	[Key.book]: "本",
 	[Key.diary]: "日記",
 
 	// デバイスページ
@@ -80,6 +81,23 @@ export const ja: Translation = {
 		"Bangumiの設定またはネットワーク接続を確認してください",
 	[Key.animeEmptyLocal]:
 		"src/data/anime.tsファイルにアニメ情報を追加してください",
+
+	// 本ページ
+	[Key.bookTitle]: "私のブックリスト",
+	[Key.bookSubtitle]: "私の読書の旅を記録する",
+	[Key.bookStatusReading]: "読書中",
+	[Key.bookStatusCompleted]: "完了",
+	[Key.bookStatusPlanned]: "予定",
+	[Key.bookStatusOnHold]: "一時停止",
+	[Key.bookStatusDropped]: "中断",
+	[Key.bookFilterAll]: "すべて",
+	[Key.bookYear]: "年",
+	[Key.bookAuthor]: "著者",
+	[Key.bookEmpty]: "本データなし",
+	[Key.bookEmptyBangumi]:
+		"Bangumiの設定またはネットワーク接続を確認してください",
+	[Key.bookEmptyLocal]:
+		"src/data/book.tsファイルに本情報を追加してください",
 
 	// 日記ページ
 	[Key.diarySubtitle]: "いつでもどこでも、生活を共有する",

@@ -57,6 +57,7 @@ export const zh_CN: Translation = {
 	[Key.publishedAt]: "发布于",
 	[Key.license]: "许可协议",
 	[Key.anime]: "追番",
+	[Key.book]: "书籍",
 	[Key.diary]: "日记",
 
 	// 番剧页面
@@ -73,6 +74,21 @@ export const zh_CN: Translation = {
 	[Key.animeEmpty]: "暂无追番数据",
 	[Key.animeEmptyBangumi]: "请检查 Bangumi 配置或网络连接",
 	[Key.animeEmptyLocal]: "请在 src/data/anime.ts 文件中添加番剧信息",
+
+	// 书籍页面
+	[Key.bookTitle]: "我的读书记录",
+	[Key.bookSubtitle]: "记录我的阅读之旅",
+	[Key.bookStatusReading]: "在读",
+	[Key.bookStatusCompleted]: "已读",
+	[Key.bookStatusPlanned]: "想读",
+	[Key.bookStatusOnHold]: "搁置",
+	[Key.bookStatusDropped]: "抛弃",
+	[Key.bookFilterAll]: "全部",
+	[Key.bookYear]: "年份",
+	[Key.bookAuthor]: "作者",
+	[Key.bookEmpty]: "暂无书籍数据",
+	[Key.bookEmptyBangumi]: "请检查 Bangumi 配置或网络连接",
+	[Key.bookEmptyLocal]: "请在 src/data/book.ts 文件中添加书籍信息",
 
 	// 短文页面
 	[Key.diarySubtitle]: "随时随地，分享生活",

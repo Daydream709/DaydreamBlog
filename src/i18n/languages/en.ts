@@ -57,6 +57,7 @@ export const en: Translation = {
 	[Key.publishedAt]: "Published at",
 	[Key.license]: "License",
 	[Key.anime]: "Anime",
+	[Key.book]: "Book",
 	[Key.diary]: "Diary",
 
 	// Anime Page
@@ -75,6 +76,23 @@ export const en: Translation = {
 		"Please check Bangumi configuration or network connection",
 	[Key.animeEmptyLocal]:
 		"Please add anime information in src/data/anime.ts file",
+
+	// Book Page
+	[Key.bookTitle]: "My Book List",
+	[Key.bookSubtitle]: "Record my reading journey",
+	[Key.bookStatusReading]: "Reading",
+	[Key.bookStatusCompleted]: "Completed",
+	[Key.bookStatusPlanned]: "Planned",
+	[Key.bookStatusOnHold]: "On Hold",
+	[Key.bookStatusDropped]: "Dropped",
+	[Key.bookFilterAll]: "All",
+	[Key.bookYear]: "Year",
+	[Key.bookAuthor]: "Author",
+	[Key.bookEmpty]: "No book data",
+	[Key.bookEmptyBangumi]:
+		"Please check Bangumi configuration or network connection",
+	[Key.bookEmptyLocal]:
+		"Please add book information in src/data/book.ts file",
 
 	// Diary Page
 	[Key.diarySubtitle]: "Share life anytime, anywhere",

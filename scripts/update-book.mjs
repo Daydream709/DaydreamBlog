@@ -9,7 +9,7 @@ const CONFIG_PATH = path.join(
 );
 const OUTPUT_FILE = path.join(
 	path.dirname(fileURLToPath(import.meta.url)),
-	"../src/data/bangumi-data.json",
+	"../src/data/book-data.json",
 );
 
 async function getUserIdFromConfig() {
@@ -40,11 +40,11 @@ async function getUserIdFromConfig() {
 	}
 }
 
-async function getAnimeModeFromConfig() {
+async function getBookModeFromConfig() {
 	try {
 		const configContent = await fs.readFile(CONFIG_PATH, "utf-8");
 		const match = configContent.match(
-			/anime:\s*\{[\s\S]*?mode:\s*["']([^"']+)["']/,
+			/book:\s*\{[\s\S]*?mode:\s*["']([^"']+)["']/,
 		);
 
 		if (match && match[1]) {
@@ -69,10 +69,30 @@ async function fetchSubjectDetail(subjectId) {
 	}
 }
 
-function getStudioFromInfobox(infobox) {
+function getPublisherFromInfobox(infobox) {
 	if (!Array.isArray(infobox)) return "Unknown";
 
-	const targetKeys = ["动画制作", "制作", "製作", "开发"];
+	const targetKeys = ["出版社", "发行商", "出版", "出版社"];
+
+	for (const key of targetKeys) {
+		const item = infobox.find((i) => i.key === key);
+		if (item) {
+			if (typeof item.value === "string") {
+				return item.value;
+			}
+			if (Array.isArray(item.value)) {
+				const validItem = item.value.find((v) => v.v);
+				if (validItem) return validItem.v;
+			}
+		}
+	}
+	return "Unknown";
+}
+
+function getAuthorFromInfobox(infobox) {
+	if (!Array.isArray(infobox)) return "Unknown";
+
+	const targetKeys = ["作者", "作者", "原著作者"];
 
 	for (const key of targetKeys) {
 		const item = infobox.find((i) => i.key === key);
@@ -98,7 +118,7 @@ async function fetchCollection(userId, type) {
 	console.log(`Fetching type: ${type}...`);
 
 	while (hasMore) {
-		const url = `${API_BASE}/v0/users/${userId}/collections?subject_type=2&type=${type}&limit=${limit}&offset=${offset}`;
+		const url = `${API_BASE}/v0/users/${userId}/collections?subject_type=1&type=${type}&limit=${limit}&offset=${offset}`;
 		try {
 			const response = await fetch(url);
 
@@ -161,11 +181,15 @@ async function processData(items, status) {
 				? Number.parseFloat(item.subject.score.toFixed(1))
 				: 0;
 
-		const progress = item.ep_status || 0;
-		const totalEpisodes = item.subject?.eps || progress;
+		const progress = item.vol_status || 0;
+		const totalPages = item.subject?.eps || progress;
 
-		const studio = subjectDetail
-			? getStudioFromInfobox(subjectDetail.infobox)
+		const publisher = subjectDetail
+			? getPublisherFromInfobox(subjectDetail.infobox)
+			: "Unknown";
+
+		const author = subjectDetail
+			? getAuthorFromInfobox(subjectDetail.infobox)
 			: "Unknown";
 
 		const description = (
@@ -180,17 +204,18 @@ async function processData(items, status) {
 				item.subject?.name_cn || item.subject?.name || "Unknown Title",
 			status: status,
 			rating: rating,
-			cover: item.subject?.images?.medium || "/assets/anime/default.webp",
+			cover: item.subject?.images?.medium || "/assets/books/default.webp",
 			description: description,
-			episodes: `${totalEpisodes} episodes`,
+			pages: `${totalPages} pages`,
 			year: year,
 			genre: item.tags ? item.tags : ["Unknown"],
-			studio: studio,
+			author: author,
+			publisher: publisher,
 			link: item.subject?.id
 				? `https://bgm.tv/subject/${item.subject.id}`
 				: "#",
 			progress: progress,
-			totalEpisodes: totalEpisodes,
+			totalPages: totalPages,
 			startDate: item.subject?.date || "",
 			endDate: item.subject?.date || "",
 			comment: item.comment || "",
@@ -201,12 +226,12 @@ async function processData(items, status) {
 }
 
 async function main() {
-	console.log("Initializing Bangumi data update script...");
+	console.log("Initializing Bangumi book data update script...");
 
-	const animeMode = await getAnimeModeFromConfig();
-	if (animeMode !== "bangumi") {
+	const bookMode = await getBookModeFromConfig();
+	if (bookMode !== "bangumi") {
 		console.log(
-			`Detected current anime mode is "${animeMode}", skipping Bangumi data update.`,
+			`Detected current book mode is "${bookMode}", skipping Bangumi data update.`,
 		);
 		return;
 	}
@@ -215,20 +240,20 @@ async function main() {
 	console.log(`Read User ID: ${USER_ID}`);
 
 	const collections = [
-		{ type: 3, status: "watching" },
+		{ type: 3, status: "reading" },
 		{ type: 1, status: "planned" },
 		{ type: 2, status: "completed" },
 		{ type: 4, status: "onhold" },
 		{ type: 5, status: "dropped" },
 	];
 
-	let finalAnimeList = [];
+	let finalBookList = [];
 
 	for (const c of collections) {
 		const rawData = await fetchCollection(USER_ID, c.type);
 		if (rawData.length > 0) {
 			const processed = await processData(rawData, c.status);
-			finalAnimeList = [...finalAnimeList, ...processed];
+			finalBookList = [...finalBookList, ...processed];
 		}
 	}
 
@@ -239,9 +264,9 @@ async function main() {
 		await fs.mkdir(dir, { recursive: true });
 	}
 
-	await fs.writeFile(OUTPUT_FILE, JSON.stringify(finalAnimeList, null, 2));
+	await fs.writeFile(OUTPUT_FILE, JSON.stringify(finalBookList, null, 2));
 	console.log(`\nUpdate complete! Data saved to: ${OUTPUT_FILE}`);
-	console.log(`Total collected: ${finalAnimeList.length} anime series`);
+	console.log(`Total collected: ${finalBookList.length} books`);
 }
 
 main().catch((err) => {
@@ -249,3 +274,4 @@ main().catch((err) => {
 	console.error(err);
 	process.exit(1);
 });
+

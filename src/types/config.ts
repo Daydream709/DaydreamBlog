@@ -14,43 +14,43 @@ export type SiteConfig = {
 	siteStartDate?: string; // 站点开始日期，格式：YYYY-MM-DD，用于计算运行天数
 
 	timeZone:
-		| -12
-		| -11
-		| -10
-		| -9
-		| -8
-		| -7
-		| -6
-		| -5
-		| -4
-		| -3
-		| -2
-		| -1
-		| 0
-		| 1
-		| 2
-		| 3
-		| 4
-		| 5
-		| 6
-		| 7
-		| 8
-		| 9
-		| 10
-		| 11
-		| 12;
+	| -12
+	| -11
+	| -10
+	| -9
+	| -8
+	| -7
+	| -6
+	| -5
+	| -4
+	| -3
+	| -2
+	| -1
+	| 0
+	| 1
+	| 2
+	| 3
+	| 4
+	| 5
+	| 6
+	| 7
+	| 8
+	| 9
+	| 10
+	| 11
+	| 12;
 
 	lang:
-		| "en"
-		| "zh_CN"
-		| "zh_TW"
-		| "ja"
-		| "ko"
-		| "es"
-		| "th"
-		| "vi"
-		| "tr"
-		| "id";
+	| "en"
+	| "zh_CN"
+	| "zh_TW"
+	| "ja"
+	| "ko"
+	| "es"
+	| "th"
+	| "vi"
+	| "tr"
+	| "id";
 
 	themeColor: {
 		hue: number;
@@ -60,6 +60,7 @@ export type SiteConfig = {
 	// 特色页面开关配置
 	featurePages: {
 		anime: boolean; // 番剧页面开关
+		book: boolean; // 书籍页面开关
 		diary: boolean; // 日记页面开关
 		friends: boolean; // 友链页面开关
 		projects: boolean; // 项目页面开关
@@ -110,6 +111,11 @@ export type SiteConfig = {
 		mode?: "bangumi" | "local"; // 番剧页面模式
 	};
 
+	// 添加书籍页面配置
+	book?: {
+		mode?: "bangumi" | "local"; // 书籍页面模式
+	};
+
 	// 标签样式配置
 	tagStyle?: {
 		useNewStyle?: boolean; // 是否使用新样式（悬停高亮样式）还是旧样式（外框常亮样式）
@@ -123,12 +129,12 @@ export type SiteConfig = {
 
 	banner: {
 		src:
-			| string
-			| string[]
-			| {
-					desktop?: string | string[];
-					mobile?: string | string[];
-			  }; // 支持单个图片、图片数组或分别设置桌面端和移动端图片
+		| string
+		| string[]
+		| {
+			desktop?: string | string[];
+			mobile?: string | string[];
+		}; // 支持单个图片、图片数组或分别设置桌面端和移动端图片
 		position?: "top" | "center" | "bottom";
 		carousel?: {
 			enable: boolean; // 是否启用轮播
@@ -403,12 +409,12 @@ export type SakuraConfig = {
 
 export type FullscreenWallpaperConfig = {
 	src:
-		| string
-		| string[]
-		| {
-				desktop?: string | string[];
-				mobile?: string | string[];
-		  }; // 支持单个图片、图片数组或分别设置桌面端和移动端图片
+	| string
+	| string[]
+	| {
+		desktop?: string | string[];
+		mobile?: string | string[];
+	}; // 支持单个图片、图片数组或分别设置桌面端和移动端图片
 	position?: "top" | "center" | "bottom"; // 壁纸位置，等同于 object-position
 	carousel?: {
 		enable: boolean; // 是否启用轮播
