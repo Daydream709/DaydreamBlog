@@ -72,6 +72,16 @@ enum I18nKey {
 	animeEmpty = "animeEmpty",
 	animeEmptyBangumi = "animeEmptyBangumi",
 	animeEmptyLocal = "animeEmptyLocal",
+	animeDetailBack = "animeDetailBack",
+	animeDetailRating = "animeDetailRating",
+	animeDetailEpisodes = "animeDetailEpisodes",
+	animeDetailProgress = "animeDetailProgress",
+	animeDetailDescription = "animeDetailDescription",
+	animeDetailGenre = "animeDetailGenre",
+	animeDetailStartDate = "animeDetailStartDate",
+	animeDetailEndDate = "animeDetailEndDate",
+	animeDetailNotFound = "animeDetailNotFound",
+	animeDetailNotFoundDesc = "animeDetailNotFoundDesc",
 
 	// 书籍页面
 	bookTitle = "bookTitle",
@@ -87,6 +97,16 @@ enum I18nKey {
 	bookEmpty = "bookEmpty",
 	bookEmptyBangumi = "bookEmptyBangumi",
 	bookEmptyLocal = "bookEmptyLocal",
+	bookDetailBack = "bookDetailBack",
+	bookDetailRating = "bookDetailRating",
+	bookDetailPages = "bookDetailPages",
+	bookDetailProgress = "bookDetailProgress",
+	bookDetailDescription = "bookDetailDescription",
+	bookDetailGenre = "bookDetailGenre",
+	bookDetailStartDate = "bookDetailStartDate",
+	bookDetailEndDate = "bookDetailEndDate",
+	bookDetailNotFound = "bookDetailNotFound",
+	bookDetailNotFoundDesc = "bookDetailNotFoundDesc",
 
 	// 短文页面
 	diarySubtitle = "diarySubtitle",

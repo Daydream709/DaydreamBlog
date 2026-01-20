@@ -63,6 +63,7 @@ export const siteConfig: SiteConfig = {
 
 	bangumi: {
 		userId: "1200696", // 在此处设置你的Bangumi用户ID，可以设置为 "sai" 测试
+		accessToken: "C86KW2luvj5mfE97W7bE79Itm6hcQeiwkqXrxYav", // 在此处设置你的Bangumi Access Token，用于访问隐藏数据（可选）
 		fetchOnDev: true, // 是否在开发环境下获取 Bangumi 数据（默认 false），获取前先执行 pnpm build 构建 json 文件
 	},
 
@@ -148,13 +149,7 @@ export const siteConfig: SiteConfig = {
 			enable: true, // 在主页显示自定义文本
 			title: "Title-test", // 主页横幅主标题
 
-			subtitle: [
-				"test1",
-				"test2",
-				"test3",
-				"test4",
-				"test5",
-			],
+			subtitle: ["test1", "test2", "test3", "test4", "test5"],
 			typewriter: {
 				enable: true, // 启用副标题打字机效果
 

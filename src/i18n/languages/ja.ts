@@ -81,6 +81,17 @@ export const ja: Translation = {
 		"Bangumiの設定またはネットワーク接続を確認してください",
 	[Key.animeEmptyLocal]:
 		"src/data/anime.tsファイルにアニメ情報を追加してください",
+	[Key.animeDetailBack]: "リストに戻る",
+	[Key.animeDetailRating]: "評価",
+	[Key.animeDetailEpisodes]: "話数",
+	[Key.animeDetailProgress]: "進捗",
+	[Key.animeDetailDescription]: "概要",
+	[Key.animeDetailGenre]: "ジャンル",
+	[Key.animeDetailStartDate]: "開始日",
+	[Key.animeDetailEndDate]: "終了日",
+	[Key.animeDetailNotFound]: "アニメが見つかりません",
+	[Key.animeDetailNotFoundDesc]:
+		"申し訳ありませんが、アニメ情報が見つかりませんでした。",
 
 	// 本ページ
 	[Key.bookTitle]: "私のブックリスト",
@@ -96,8 +107,18 @@ export const ja: Translation = {
 	[Key.bookEmpty]: "本データなし",
 	[Key.bookEmptyBangumi]:
 		"Bangumiの設定またはネットワーク接続を確認してください",
-	[Key.bookEmptyLocal]:
-		"src/data/book.tsファイルに本情報を追加してください",
+	[Key.bookEmptyLocal]: "src/data/book.tsファイルに本情報を追加してください",
+	[Key.bookDetailBack]: "リストに戻る",
+	[Key.bookDetailRating]: "評価",
+	[Key.bookDetailPages]: "ページ数",
+	[Key.bookDetailProgress]: "進捗",
+	[Key.bookDetailDescription]: "概要",
+	[Key.bookDetailGenre]: "ジャンル",
+	[Key.bookDetailStartDate]: "開始日",
+	[Key.bookDetailEndDate]: "終了日",
+	[Key.bookDetailNotFound]: "本が見つかりません",
+	[Key.bookDetailNotFoundDesc]:
+		"申し訳ありませんが、本情報が見つかりませんでした。",
 
 	// 日記ページ
 	[Key.diarySubtitle]: "いつでもどこでも、生活を共有する",

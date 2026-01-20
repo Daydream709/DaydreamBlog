@@ -1,0 +1,321 @@
+---
+import ImageWrapper from "../../components/misc/ImageWrapper.astro";
+import { siteConfig } from "../../config";
+import localBookList from "../../data/book";
+import I18nKey from "../../i18n/i18nKey";
+import { i18n } from "../../i18n/translation";
+import MainGridLayout from "../../layouts/MainGridLayout.astro";
+import fs from "node:fs";
+import path from "node:path";
+
+if (!siteConfig.featurePages.book) {
+	return Astro.redirect("/404/");
+}
+
+export async function getStaticPaths() {
+	let bookList: BookItem[] = [];
+
+	if (siteConfig.book?.mode === "local") {
+		bookList = localBookList;
+	} else {
+		try {
+			const dataPath = path.join(
+				process.cwd(),
+				"src/data/book-data.json",
+			);
+			if (fs.existsSync(dataPath)) {
+				const fileContent = fs.readFileSync(dataPath, "utf-8");
+				const rawData = JSON.parse(fileContent);
+				bookList = rawData.map((item: any) => ({
+					id: item.id || 0,
+					title: item.title || "Unknown",
+					cover: item.cover || "",
+					link: item.link || "",
+					status: item.status || "planned",
+					rating: Number(item.rating) || 0,
+					progress: Number(item.progress) || 0,
+					totalPages: Number(item.totalPages) || 12,
+					description: item.description || "",
+					year: item.year || "",
+					author: item.author || "",
+					genre: Array.isArray(item.genre) ? item.genre : [],
+					startDate: item.startDate || "",
+					endDate: item.endDate || "",
+				}));
+			}
+		} catch (error) {
+			console.error("Failed to load book data:", error);
+		}
+	}
+
+	return bookList.map((book) => ({
+		params: { id: String(book.id) },
+		props: { book },
+	}));
+}
+
+interface BookItem {
+	id: number;
+	title: string;
+	cover: string;
+	link: string;
+	status: string;
+	rating: number;
+	progress: number;
+	totalPages: number;
+	description: string;
+	year: string;
+	author: string;
+	genre: string[];
+	startDate: string;
+	endDate: string;
+}
+
+const { id } = Astro.params;
+const { book } = Astro.props;
+
+console.log('[Book Detail] Route ID:', id, 'Book ID:', book.id);
+
+if (!book) {
+	console.log('[Book Detail] Book not found, redirecting to 404');
+	return Astro.redirect("/404/");
+}
+
+function getStatusInfo(status: string) {
+	switch (status) {
+		case "reading":
+			return {
+				text: i18n(I18nKey.bookStatusReading),
+				class: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300",
+				icon: "📖",
+			};
+		case "completed":
+			return {
+				text: i18n(I18nKey.bookStatusCompleted),
+				class: "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300",
+				icon: "✓",
+			};
+		case "planned":
+			return {
+				text: i18n(I18nKey.bookStatusPlanned),
+				class: "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300",
+				icon: "❤",
+			};
+		case "onhold":
+			return {
+				text: i18n(I18nKey.bookStatusOnHold),
+				class: "bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300",
+				icon: "⏸",
+			};
+		case "dropped":
+			return {
+				text: i18n(I18nKey.bookStatusDropped),
+				class: "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300",
+				icon: "✗",
+			};
+		default:
+			return {
+				text: status,
+				class: "bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300",
+				icon: "?",
+			};
+	}
+}
+
+const statusInfo = getStatusInfo(book.status);
+const progressPercent = book.totalPages > 0 ? (book.progress / book.totalPages) * 100 : 0;
+---
+
+<MainGridLayout title={book.title} description={book.description}>
+	<div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative min-h-32">
+		<div class="card-base z-10 px-9 py-6 relative w-full">
+			<a
+				href="/book/"
+				class="inline-flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-[var(--primary)] transition-colors mb-6"
+			>
+				<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+				</svg>
+				{i18n(I18nKey.bookDetailBack)}
+			</a>
+
+			<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+				<div class="lg:col-span-1">
+					<div class="sticky top-6">
+						<div class="relative rounded-[var(--radius-large)] overflow-hidden shadow-lg">
+							<ImageWrapper
+								src={book.cover}
+								alt={book.title}
+								class="w-full aspect-[2/3] object-cover cursor-zoom-in"
+								data-zoomable="true"
+							/>
+						</div>
+
+						<div class="mt-4 space-y-3">
+							<div class="flex items-center justify-between p-3 bg-[var(--card-bg)] border border-[var(--line-divider)] rounded-lg">
+								<span class="text-sm text-black/60 dark:text-white/60">
+									{i18n(I18nKey.bookDetailRating)}
+								</span>
+								<div class="flex items-center gap-1">
+									<svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+										<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+									</svg>
+									<span class="font-bold text-lg">{book.rating}</span>
+								</div>
+							</div>
+
+							<div class={`flex items-center justify-between p-3 bg-[var(--card-bg)] border border-[var(--line-divider)] rounded-lg ${statusInfo.class}`}>
+								<span class="text-sm font-medium">
+									{statusInfo.icon} {statusInfo.text}
+								</span>
+							</div>
+
+							{book.link && (
+								<a
+									href={book.link}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="block w-full text-center py-3 px-4 bg-[var(--primary)] text-white rounded-lg hover:opacity-90 transition-opacity font-medium"
+								>
+									{i18n(I18nKey.bookStatusReading) === statusInfo.text
+										? "继续阅读"
+										: i18n(I18nKey.bookStatusCompleted) === statusInfo.text
+											? "重新阅读"
+											: "开始阅读"}
+								</a>
+							)}
+						</div>
+					</div>
+				</div>
+
+				<div class="lg:col-span-2 space-y-6">
+					<div>
+						<h1 class="text-3xl font-bold text-black/90 dark:text-white/90 mb-2">
+							{book.title}
+						</h1>
+						<p class="text-black/60 dark:text-white/60 text-sm">
+							{book.author} · {book.year}
+						</p>
+					</div>
+
+					<div class="flex flex-wrap gap-2">
+						{book.genre.map((g) => (
+							<span class="px-3 py-1.5 bg-[var(--btn-regular-bg)] text-black/70 dark:text-white/70 rounded-lg text-sm">
+								{g}
+							</span>
+						))}
+					</div>
+
+					<div class="p-4 bg-[var(--card-bg)] border border-[var(--line-divider)] rounded-lg">
+						<h2 class="text-lg font-semibold text-black/90 dark:text-white/90 mb-3">
+							{i18n(I18nKey.bookDetailDescription)}
+						</h2>
+						<p class="text-black/70 dark:text-white/70 leading-relaxed whitespace-pre-wrap">
+							{book.description || "暂无简介"}
+						</p>
+					</div>
+
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+						<div class="p-4 bg-[var(--card-bg)] border border-[var(--line-divider)] rounded-lg">
+							<div class="text-sm text-black/60 dark:text-white/60 mb-1">
+								{i18n(I18nKey.bookDetailPages)}
+							</div>
+							<div class="text-lg font-semibold text-black/90 dark:text-white/90">
+								{book.totalPages} {i18n(I18nKey.bookDetailPages)}
+							</div>
+						</div>
+
+						<div class="p-4 bg-[var(--card-bg)] border border-[var(--line-divider)] rounded-lg">
+							<div class="text-sm text-black/60 dark:text-white/60 mb-1">
+								{i18n(I18nKey.bookDetailProgress)}
+							</div>
+							<div class="text-lg font-semibold text-black/90 dark:text-white/90">
+								{book.progress} / {book.totalPages}
+							</div>
+							<div class="w-full bg-black/10 dark:bg-white/10 rounded-full h-2 mt-2">
+								<div
+									class="bg-[var(--primary)] h-2 rounded-full transition-all duration-300"
+									style={`width: ${progressPercent}%`}
+								/>
+							</div>
+						</div>
+
+						<div class="p-4 bg-[var(--card-bg)] border border-[var(--line-divider)] rounded-lg">
+							<div class="text-sm text-black/60 dark:text-white/60 mb-1">
+								{i18n(I18nKey.bookDetailStartDate)}
+							</div>
+							<div class="text-lg font-semibold text-black/90 dark:text-white/90">
+								{book.startDate || "-"}
+							</div>
+						</div>
+
+						<div class="p-4 bg-[var(--card-bg)] border border-[var(--line-divider)] rounded-lg">
+							<div class="text-sm text-black/60 dark:text-white/60 mb-1">
+								{i18n(I18nKey.bookDetailEndDate)}
+							</div>
+							<div class="text-lg font-semibold text-black/90 dark:text-white/90">
+								{book.endDate || "-"}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</MainGridLayout>
+
+<style>
+	.cursor-zoom-in {
+		cursor: zoom-in;
+	}
+
+	@media (max-width: 1024px) {
+		.sticky {
+			position: static !important;
+		}
+	}
+</style>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const zoomableImages = document.querySelectorAll('[data-zoomable="true"]');
+
+		zoomableImages.forEach(img => {
+			img.addEventListener('click', () => {
+				const overlay = document.createElement('div');
+				overlay.className = 'fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 cursor-zoom-out';
+				overlay.style.opacity = '0';
+				overlay.style.transition = 'opacity 0.3s ease';
+
+				const enlargedImg = document.createElement('img');
+				// enlargedImg.src = img.src;
+				// enlargedImg.alt = img.alt;
+				enlargedImg.className = 'max-w-full max-h-full object-contain';
+				enlargedImg.style.transform = 'scale(0.95)';
+				enlargedImg.style.transition = 'transform 0.3s ease';
+
+				overlay.appendChild(enlargedImg);
+				document.body.appendChild(overlay);
+
+				requestAnimationFrame(() => {
+					overlay.style.opacity = '1';
+					enlargedImg.style.transform = 'scale(1)';
+				});
+
+				overlay.addEventListener('click', () => {
+					overlay.style.opacity = '0';
+					enlargedImg.style.transform = 'scale(0.95)';
+					setTimeout(() => {
+						document.body.removeChild(overlay);
+					}, 300);
+				});
+
+				overlay.addEventListener('keydown', (e) => {
+					if (e.key === 'Escape') {
+						overlay.click();
+					}
+				});
+			});
+		});
+	});
+</script>

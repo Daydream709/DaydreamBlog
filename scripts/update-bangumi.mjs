@@ -56,12 +56,37 @@ async function getAnimeModeFromConfig() {
 	}
 }
 
+async function getAccessTokenFromConfig() {
+	try {
+		const configContent = await fs.readFile(CONFIG_PATH, "utf-8");
+		const match = configContent.match(
+			/bangumi:\s*\{[\s\S]*?accessToken:\s*["']([^"']*)["']/,
+		);
+
+		if (match && match[1]) {
+			return match[1];
+		}
+		return "";
+	} catch (error) {
+		return "";
+	}
+}
+
 // 模拟延迟防止 API 限制
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-async function fetchSubjectDetail(subjectId) {
+async function fetchSubjectDetail(subjectId, accessToken) {
 	try {
-		const response = await fetch(`${API_BASE}/v0/subjects/${subjectId}`);
+		const headers = {
+			"Content-Type": "application/json",
+		};
+		if (accessToken) {
+			headers["Authorization"] = `Bearer ${accessToken}`;
+		}
+
+		const response = await fetch(`${API_BASE}/v0/subjects/${subjectId}`, {
+			headers,
+		});
 		if (!response.ok) return null;
 		return await response.json();
 	} catch (error) {
@@ -89,7 +114,7 @@ function getStudioFromInfobox(infobox) {
 	return "Unknown";
 }
 
-async function fetchCollection(userId, type) {
+async function fetchCollection(userId, type, accessToken) {
 	let allData = [];
 	let offset = 0;
 	const limit = 50;
@@ -100,7 +125,16 @@ async function fetchCollection(userId, type) {
 	while (hasMore) {
 		const url = `${API_BASE}/v0/users/${userId}/collections?subject_type=2&type=${type}&limit=${limit}&offset=${offset}`;
 		try {
-			const response = await fetch(url);
+			const headers = {
+				"Content-Type": "application/json",
+			};
+			if (accessToken) {
+				headers["Authorization"] = `Bearer ${accessToken}`;
+			}
+
+			const response = await fetch(url, {
+				headers,
+			});
 
 			if (!response.ok) {
 				if (response.status === 404) {
@@ -137,7 +171,7 @@ async function fetchCollection(userId, type) {
 	return allData;
 }
 
-async function processData(items, status) {
+async function processData(items, status, accessToken) {
 	const results = [];
 	let count = 0;
 	const total = items.length;
@@ -148,7 +182,10 @@ async function processData(items, status) {
 			`[${status}] Processing progress: ${count}/${total} (${item.subject_id})\r`,
 		);
 
-		const subjectDetail = await fetchSubjectDetail(item.subject_id);
+		const subjectDetail = await fetchSubjectDetail(
+			item.subject_id,
+			accessToken,
+		);
 		await delay(150);
 
 		const year = item.subject?.date
@@ -176,6 +213,7 @@ async function processData(items, status) {
 		).trimStart();
 
 		results.push({
+			id: item.subject?.id || 0,
 			title:
 				item.subject?.name_cn || item.subject?.name || "Unknown Title",
 			status: status,
@@ -212,7 +250,13 @@ async function main() {
 	}
 
 	const USER_ID = await getUserIdFromConfig();
+	const ACCESS_TOKEN = await getAccessTokenFromConfig();
 	console.log(`Read User ID: ${USER_ID}`);
+	if (ACCESS_TOKEN) {
+		console.log(`Access Token: ${ACCESS_TOKEN.substring(0, 10)}...`);
+	} else {
+		console.log(`No Access Token configured, using public API only.`);
+	}
 
 	const collections = [
 		{ type: 3, status: "watching" },
@@ -225,9 +269,13 @@ async function main() {
 	let finalAnimeList = [];
 
 	for (const c of collections) {
-		const rawData = await fetchCollection(USER_ID, c.type);
+		const rawData = await fetchCollection(USER_ID, c.type, ACCESS_TOKEN);
 		if (rawData.length > 0) {
-			const processed = await processData(rawData, c.status);
+			const processed = await processData(
+				rawData,
+				c.status,
+				ACCESS_TOKEN,
+			);
 			finalAnimeList = [...finalAnimeList, ...processed];
 		}
 	}

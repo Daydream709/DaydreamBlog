@@ -76,6 +76,29 @@ export const en: Translation = {
 		"Please check Bangumi configuration or network connection",
 	[Key.animeEmptyLocal]:
 		"Please add anime information in src/data/anime.ts file",
+	[Key.animeDetailBack]: "Back to List",
+	[Key.animeDetailRating]: "Rating",
+	[Key.animeDetailEpisodes]: "Episodes",
+	[Key.animeDetailProgress]: "Progress",
+	[Key.animeDetailDescription]: "Description",
+	[Key.animeDetailGenre]: "Genre",
+	[Key.animeDetailStartDate]: "Start Date",
+	[Key.animeDetailEndDate]: "End Date",
+	[Key.animeDetailNotFound]: "Anime Not Found",
+	[Key.animeDetailNotFoundDesc]:
+		"Sorry, the anime information was not found.",
+
+	// Book Detail Page
+	[Key.bookDetailBack]: "Back to List",
+	[Key.bookDetailRating]: "Rating",
+	[Key.bookDetailPages]: "Pages",
+	[Key.bookDetailProgress]: "Progress",
+	[Key.bookDetailDescription]: "Description",
+	[Key.bookDetailGenre]: "Genre",
+	[Key.bookDetailStartDate]: "Start Date",
+	[Key.bookDetailEndDate]: "End Date",
+	[Key.bookDetailNotFound]: "Book Not Found",
+	[Key.bookDetailNotFoundDesc]: "Sorry, the book information was not found.",
 
 	// Book Page
 	[Key.bookTitle]: "My Book List",

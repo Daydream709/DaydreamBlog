@@ -1,5 +1,6 @@
 // 本地番剧数据配置
 export type AnimeItem = {
+	id: number;
 	title: string;
 	status: "watching" | "completed" | "planned";
 	rating: number;
@@ -18,6 +19,7 @@ export type AnimeItem = {
 
 const localAnimeList: AnimeItem[] = [
 	{
+		id: 1,
 		title: "Lycoris Recoil",
 		status: "completed",
 		rating: 9.8,
@@ -34,6 +36,7 @@ const localAnimeList: AnimeItem[] = [
 		endDate: "2022-09",
 	},
 	{
+		id: 2,
 		title: "Yowamushi Pedal",
 		status: "watching",
 		rating: 9.5,
@@ -50,6 +53,7 @@ const localAnimeList: AnimeItem[] = [
 		endDate: "2015-09",
 	},
 	{
+		id: 3,
 		title: "Asteroid in Love",
 		status: "watching",
 		rating: 9.2,
@@ -66,6 +70,7 @@ const localAnimeList: AnimeItem[] = [
 		endDate: "2020-03",
 	},
 	{
+		id: 4,
 		title: "Is the Order a Rabbit?",
 		status: "planned",
 		rating: 9.0,
@@ -82,6 +87,7 @@ const localAnimeList: AnimeItem[] = [
 		endDate: "2014-06",
 	},
 	{
+		id: 5,
 		title: "The Secret of the Magic Girl",
 		status: "watching",
 		rating: 9.0,
@@ -100,3 +106,4 @@ const localAnimeList: AnimeItem[] = [
 ];
 
 export default localAnimeList;
+

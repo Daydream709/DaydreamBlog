@@ -79,6 +79,16 @@ export const zh_TW: Translation = {
 	[Key.animeEmpty]: "暫無追番數據",
 	[Key.animeEmptyBangumi]: "請檢查 Bangumi 配置或網絡連接",
 	[Key.animeEmptyLocal]: "請在 src/data/anime.ts 文件中添加番劇信息",
+	[Key.animeDetailBack]: "返回列表",
+	[Key.animeDetailRating]: "評分",
+	[Key.animeDetailEpisodes]: "集數",
+	[Key.animeDetailProgress]: "觀看進度",
+	[Key.animeDetailDescription]: "簡介",
+	[Key.animeDetailGenre]: "類型",
+	[Key.animeDetailStartDate]: "開始日期",
+	[Key.animeDetailEndDate]: "結束日期",
+	[Key.animeDetailNotFound]: "番劇未找到",
+	[Key.animeDetailNotFoundDesc]: "抱歉，未找到該番劇的信息。",
 
 	// 書籍頁面
 	[Key.bookTitle]: "我的讀書記錄",
@@ -94,6 +104,16 @@ export const zh_TW: Translation = {
 	[Key.bookEmpty]: "暫無書籍數據",
 	[Key.bookEmptyBangumi]: "請檢查 Bangumi 配置或網絡連接",
 	[Key.bookEmptyLocal]: "請在 src/data/book.ts 文件中添加書籍信息",
+	[Key.bookDetailBack]: "返回列表",
+	[Key.bookDetailRating]: "評分",
+	[Key.bookDetailPages]: "頁數",
+	[Key.bookDetailProgress]: "閱讀進度",
+	[Key.bookDetailDescription]: "簡介",
+	[Key.bookDetailGenre]: "類型",
+	[Key.bookDetailStartDate]: "開始日期",
+	[Key.bookDetailEndDate]: "結束日期",
+	[Key.bookDetailNotFound]: "書籍未找到",
+	[Key.bookDetailNotFoundDesc]: "抱歉，未找到該書籍的信息。",
 
 	// 短文頁面
 	[Key.diarySubtitle]: "隨時隨地，分享生活",

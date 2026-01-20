@@ -8,8 +8,10 @@ import MainGridLayout from "../layouts/MainGridLayout.astro";
 import fs from "node:fs";
 import path from "node:path";
 import "../styles/anime.css";
+import { undefined } from "astro:schema";
 
 interface AnimeItem {
+	id: number;
 	title: string;
 	cover: string;
 	link: string;
@@ -53,6 +55,7 @@ if (ANIME_MODE === "local") {
 				const fileContent = fs.readFileSync(dataPath, "utf-8");
 				const rawData = JSON.parse(fileContent);
 				animeList = rawData.map((item: any) => ({
+					id: item.id || 0,
 					title: item.title || "Unknown",
 					cover: item.cover || "",
 					link: item.link || "",
@@ -220,9 +223,7 @@ const hiddenAnimeList = animeList.slice(INITIAL_DISPLAY_COUNT);
 										>
 											<div class="relative anime-cover-container aspect-[2/3] overflow-hidden">
 												<a
-													href={anime.link}
-													target="_blank"
-													rel="noopener noreferrer"
+													href={`/anime/${anime.id}/`}
 													class="block w-full h-full"
 												>
 													<ImageWrapper
@@ -361,9 +362,7 @@ const hiddenAnimeList = animeList.slice(INITIAL_DISPLAY_COUNT);
 										>
 											<div class="relative anime-cover-container aspect-[2/3] overflow-hidden">
 												<a
-													href={anime.link}
-													target="_blank"
-													rel="noopener noreferrer"
+													href={`/anime/${anime.id}/`}
 													class="block w-full h-full"
 												>
 													<ImageWrapper

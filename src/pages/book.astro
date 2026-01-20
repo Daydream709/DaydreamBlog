@@ -10,6 +10,7 @@ import path from "node:path";
 import "../styles/book.css";
 
 interface BookItem {
+	id: number;
 	title: string;
 	cover: string;
 	link: string;
@@ -55,6 +56,7 @@ if (BOOK_MODE === "local") {
 				const fileContent = fs.readFileSync(dataPath, "utf-8");
 				const rawData = JSON.parse(fileContent);
 				bookList = rawData.map((item: any) => ({
+					id: item.id || 0,
 					title: item.title || "Unknown",
 					cover: item.cover || "",
 					link: item.link || "",
@@ -212,9 +214,7 @@ const hiddenBookList = bookList.slice(INITIAL_DISPLAY_COUNT);
 										>
 											<div class="relative book-cover-container aspect-[2/3] overflow-hidden">
 												<a
-													href={book.link}
-													target="_blank"
-													rel="noopener noreferrer"
+													href={`/book/${book.id}/`}
 													class="block w-full h-full"
 												>
 													<ImageWrapper
@@ -347,9 +347,7 @@ const hiddenBookList = bookList.slice(INITIAL_DISPLAY_COUNT);
 										>
 											<div class="relative book-cover-container aspect-[2/3] overflow-hidden">
 												<a
-													href={book.link}
-													target="_blank"
-													rel="noopener noreferrer"
+													href={`/book/${book.id}/`}
 													class="block w-full h-full"
 												>
 													<ImageWrapper

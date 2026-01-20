@@ -1,4 +1,5 @@
 export type BookItem = {
+	id: number;
 	title: string;
 	status: "reading" | "completed" | "planned";
 	rating: number;
@@ -17,6 +18,7 @@ export type BookItem = {
 
 const localBookList: BookItem[] = [
 	{
+		id: 1,
 		title: "活着",
 		status: "completed",
 		rating: 9.8,
@@ -33,6 +35,7 @@ const localBookList: BookItem[] = [
 		endDate: "2024-02",
 	},
 	{
+		id: 2,
 		title: "三体",
 		status: "reading",
 		rating: 9.5,
@@ -49,6 +52,7 @@ const localBookList: BookItem[] = [
 		endDate: "",
 	},
 	{
+		id: 3,
 		title: "百年孤独",
 		status: "planned",
 		rating: 9.0,
@@ -65,6 +69,7 @@ const localBookList: BookItem[] = [
 		endDate: "",
 	},
 	{
+		id: 4,
 		title: "围城",
 		status: "reading",
 		rating: 9.2,
@@ -81,6 +86,7 @@ const localBookList: BookItem[] = [
 		endDate: "",
 	},
 	{
+		id: 5,
 		title: "红楼梦",
 		status: "planned",
 		rating: 9.7,
@@ -99,3 +105,4 @@ const localBookList: BookItem[] = [
 ];
 
 export default localBookList;
+
