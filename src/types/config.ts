@@ -103,6 +103,7 @@ export type SiteConfig = {
 	// 添加bangumi配置
 	bangumi?: {
 		userId?: string; // Bangumi用户ID
+		accessToken?: string; // Bangumi Access Token，用于访问隐藏数据
 		fetchOnDev?: boolean;
 	};
 
