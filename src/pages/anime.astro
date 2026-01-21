@@ -23,6 +23,9 @@ interface AnimeItem {
 	year: string;
 	studio: string;
 	genre: string[];
+	startDate: string;
+	endDate: string;
+	comment: string;
 }
 
 if (!siteConfig.featurePages.anime) {
@@ -65,6 +68,7 @@ if (ANIME_MODE === "local") {
 					totalEpisodes: Number(item.totalEpisodes) || 12,
 					description: item.description || "",
 					year: item.year || "",
+					startDate: item.startDate || "",
 					studio: item.studio || "",
 					genre: Array.isArray(item.genre) ? item.genre : [],
 				}));
@@ -311,20 +315,20 @@ const hiddenAnimeList = animeList.slice(INITIAL_DISPLAY_COUNT);
 															)}
 														</span>
 														<span class="text-black/70 dark:text-white/70 truncate ml-2 text-right">
-															{anime.year}
+															{anime.startDate.split("-")[0]+"."+anime.startDate.split("-")[1]}
 														</span>
 													</div>
 													<div class="flex justify-between items-start">
 														<span class="text-black/50 dark:text-white/50 shrink-0 mt-0.5">
 															{i18n(
-																I18nKey.animeStudio,
+																I18nKey.animeDetailEpisodes,
 															)}
 														</span>
 														<span
 															class="text-black/70 dark:text-white/70 text-right ml-2 line-clamp-2 break-words"
-															title={anime.studio}
+																title={anime.totalEpisodes}
 														>
-															{anime.studio}
+															{anime.totalEpisodes}
 														</span>
 													</div>
 													<div class="flex flex-wrap gap-1 mt-2">

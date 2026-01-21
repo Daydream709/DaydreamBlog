@@ -84,6 +84,7 @@ export const en: Translation = {
 	[Key.animeDetailGenre]: "Genre",
 	[Key.animeDetailStartDate]: "Start Date",
 	[Key.animeDetailEndDate]: "End Date",
+	[Key.animeDetailComment]: "Comment",
 	[Key.animeDetailNotFound]: "Anime Not Found",
 	[Key.animeDetailNotFoundDesc]:
 		"Sorry, the anime information was not found.",

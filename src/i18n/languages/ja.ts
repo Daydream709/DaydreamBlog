@@ -89,6 +89,7 @@ export const ja: Translation = {
 	[Key.animeDetailGenre]: "ジャンル",
 	[Key.animeDetailStartDate]: "開始日",
 	[Key.animeDetailEndDate]: "終了日",
+	[Key.animeDetailComment]: "コメント",
 	[Key.animeDetailNotFound]: "アニメが見つかりません",
 	[Key.animeDetailNotFoundDesc]:
 		"申し訳ありませんが、アニメ情報が見つかりませんでした。",

@@ -80,6 +80,7 @@ enum I18nKey {
 	animeDetailGenre = "animeDetailGenre",
 	animeDetailStartDate = "animeDetailStartDate",
 	animeDetailEndDate = "animeDetailEndDate",
+	animeDetailComment = "animeDetailComment",
 	animeDetailNotFound = "animeDetailNotFound",
 	animeDetailNotFoundDesc = "animeDetailNotFoundDesc",
 

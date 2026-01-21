@@ -87,6 +87,7 @@ export const zh_TW: Translation = {
 	[Key.animeDetailGenre]: "類型",
 	[Key.animeDetailStartDate]: "開始日期",
 	[Key.animeDetailEndDate]: "結束日期",
+	[Key.animeDetailComment]: "評論",
 	[Key.animeDetailNotFound]: "番劇未找到",
 	[Key.animeDetailNotFoundDesc]: "抱歉，未找到該番劇的信息。",
 
