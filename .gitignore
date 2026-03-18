@@ -3,7 +3,8 @@ dist/
 
 # generated types
 .astro/
-
+demo
+plans
 # dependencies
 node_modules/
 
@@ -42,3 +43,8 @@ fuwari/
 src/data/myself.ts
 src/pages/myself.astro
 
+# Bangumi generated data
+src/data/bangumi-data.json
+
+# Bilibili generated data
+src/data/bilibili-data.json

@@ -16,6 +16,7 @@ enum I18nKey {
 	recentPosts = "recentPosts",
 	postList = "postList",
 	tableOfContents = "tableOfContents",
+	tocEmpty = "tocEmpty",
 
 	// 公告栏
 	announcement = "announcement",
@@ -71,6 +72,7 @@ enum I18nKey {
 	animeStudio = "animeStudio",
 	animeEmpty = "animeEmpty",
 	animeEmptyBangumi = "animeEmptyBangumi",
+	animeEmptyBilibili = "animeEmptyBilibili",
 	animeEmptyLocal = "animeEmptyLocal",
 	animeDetailBack = "animeDetailBack",
 	animeDetailRating = "animeDetailRating",
@@ -83,6 +85,8 @@ enum I18nKey {
 	animeDetailComment = "animeDetailComment",
 	animeDetailNotFound = "animeDetailNotFound",
 	animeDetailNotFoundDesc = "animeDetailNotFoundDesc",
+	animeConfigBilibili = "animeConfigBilibili",
+	animeConfigBangumi = "animeConfigBangumi",
 
 	// 书籍页面
 	bookTitle = "bookTitle",
@@ -354,6 +358,14 @@ enum I18nKey {
 	profileStatsPageViews = "profileStatsPageViews",
 	profileStatsVisits = "profileStatsVisits",
 	profileStatsUnavailable = "profileStatsUnavailable",
+
+	// 页面访问量统计
+	pageViewsLoading = "pageViewsLoading",
+	pageViewsUnavailable = "pageViewsUnavailable",
+
+	// 布局切换按钮
+	switchToGridMode = "switchToGridMode",
+	switchToListMode = "switchToListMode",
 }
 
 export default I18nKey;

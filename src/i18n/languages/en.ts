@@ -19,6 +19,7 @@ export const en: Translation = {
 	[Key.recentPosts]: "Recent Posts",
 	[Key.postList]: "Post List",
 	[Key.tableOfContents]: "Table of Contents",
+	[Key.tocEmpty]: "No table of contents",
 
 	// Announcement
 	[Key.announcement]: "Announcement",
@@ -26,8 +27,8 @@ export const en: Translation = {
 
 	[Key.comments]: "Comments",
 	[Key.friends]: "Friends",
-	[Key.friendsSubtitle]: "Discover more excellent websites",
-	[Key.friendsSearchPlaceholder]: "Search friend name or description...",
+	[Key.friendsSubtitle]: "Discover more great websites",
+	[Key.friendsSearchPlaceholder]: "Search friend's name or description...",
 	[Key.friendsFilterAll]: "All",
 	[Key.friendsNoResults]: "No matching friends found",
 	[Key.friendsVisit]: "Visit",
@@ -71,9 +72,11 @@ export const en: Translation = {
 	[Key.animeFilterAll]: "All",
 	[Key.animeYear]: "Year",
 	[Key.animeStudio]: "Studio",
-	[Key.animeEmpty]: "No anime data",
+	[Key.animeEmpty]: "No anime data available",
 	[Key.animeEmptyBangumi]:
 		"Please check Bangumi configuration or network connection",
+	[Key.animeEmptyBilibili]:
+		"Please check Bilibili configuration or network connection",
 	[Key.animeEmptyLocal]:
 		"Please add anime information in src/data/anime.ts file",
 	[Key.animeDetailBack]: "Back to List",
@@ -88,6 +91,10 @@ export const en: Translation = {
 	[Key.animeDetailNotFound]: "Anime Not Found",
 	[Key.animeDetailNotFoundDesc]:
 		"Sorry, the anime information was not found.",
+	[Key.animeConfigBilibili]:
+		"Please set your Bilibili vmid in the src/config.ts file",
+	[Key.animeConfigBangumi]:
+		"Please set your Bangumi userId in the src/config.ts file",
 
 	// Book Detail Page
 	[Key.bookDetailBack]: "Back to List",
@@ -119,7 +126,7 @@ export const en: Translation = {
 		"Please add book information in src/data/book.ts file",
 
 	// Diary Page
-	[Key.diarySubtitle]: "Share life anytime, anywhere",
+	[Key.diarySubtitle]: "Share life, anytime, anywhere",
 	[Key.diaryCount]: "diary entries",
 	[Key.diaryReply]: "Reply",
 	[Key.diaryTips]: "Only show the latest 30 diary entries",
@@ -137,15 +144,15 @@ export const en: Translation = {
 	// Music Player
 	[Key.musicPlayer]: "Music Player",
 	[Key.musicPlayerShow]: "Show Music Player",
-	[Key.musicPlayerHide]: "Hide Player",
+	[Key.musicPlayerHide]: "Hide Music Player",
 	[Key.musicPlayerExpand]: "Expand Music Player",
-	[Key.musicPlayerCollapse]: "Collapse Player",
+	[Key.musicPlayerCollapse]: "Collapse Music Player",
 	[Key.musicPlayerPause]: "Pause",
 	[Key.musicPlayerPlay]: "Play",
 	[Key.musicPlayerPrevious]: "Previous",
 	[Key.musicPlayerNext]: "Next",
 	[Key.musicPlayerShuffle]: "Shuffle",
-	[Key.musicPlayerRepeat]: "Repeat",
+	[Key.musicPlayerRepeat]: "Repeat All",
 	[Key.musicPlayerRepeatOne]: "Repeat One",
 	[Key.musicPlayerVolume]: "Volume Control",
 	[Key.musicPlayerProgress]: "Playback Progress",
@@ -204,7 +211,7 @@ export const en: Translation = {
 	[Key.rss]: "RSS Feed",
 	[Key.rssDescription]: "Subscribe to get latest updates",
 	[Key.rssSubtitle]:
-		"Subscribe via RSS to get the latest articles and updates imediately",
+		"Subscribe via RSS to get the latest articles and updates immediately",
 	[Key.rssLink]: "RSS Link",
 	[Key.rssCopyToReader]: "Copy link to your RSS reader",
 	[Key.rssCopyLink]: "Copy",
@@ -213,7 +220,7 @@ export const en: Translation = {
 	[Key.rssWhatIsRSSDescription]:
 		"RSS (Really Simple Syndication) is a standard format for publishing frequently updated content. With RSS, you can:",
 	[Key.rssBenefit1]:
-		"Get the latest website content in time without manually visiting",
+		"Get latest website content in time without manually visiting",
 	[Key.rssBenefit2]: "Manage subscriptions to multiple websites in one place",
 	[Key.rssBenefit3]: "Avoid missing important updates and articles",
 	[Key.rssBenefit4]: "Enjoy an ad-free, clean reading experience",
@@ -235,7 +242,7 @@ export const en: Translation = {
 	[Key.atomWhatIsAtomDescription]:
 		"Atom (Atom Syndication Format) is an XML-based standard for describing feeds and their items. With Atom, you can:",
 	[Key.atomBenefit1]:
-		"Get the latest website content in time without manually visiting",
+		"Get latest website content in time without manually visiting",
 	[Key.atomBenefit2]:
 		"Manage subscriptions to multiple websites in one place",
 	[Key.atomBenefit3]: "Avoid missing important updates and articles",
@@ -337,7 +344,7 @@ export const en: Translation = {
 	[Key.siteStatsCategoryCount]: "Categories",
 	[Key.siteStatsTagCount]: "Tags",
 	[Key.siteStatsTotalWords]: "Total Words",
-	[Key.siteStatsRunningDays]: "Running Time",
+	[Key.siteStatsRunningDays]: "Running Days",
 	[Key.siteStatsLastUpdate]: "Last Activity",
 	[Key.siteStatsDaysAgo]: "{days} days ago",
 	[Key.siteStatsDays]: "{days} days",
@@ -379,4 +386,12 @@ export const en: Translation = {
 	[Key.profileStatsPageViews]: "Page views",
 	[Key.profileStatsVisits]: "Visits",
 	[Key.profileStatsUnavailable]: "Stats unavailable",
+
+	// Page Views Stats
+	[Key.pageViewsLoading]: "Loading stats...",
+	[Key.pageViewsUnavailable]: "Stats unavailable",
+
+	// Layout Switch Button
+	[Key.switchToGridMode]: "Switch to Grid Mode",
+	[Key.switchToListMode]: "Switch to List Mode",
 };
