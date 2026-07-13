@@ -1,8 +1,52 @@
 import fs from "fs/promises";
 import path from "path";
+import https from "https";
 import { fileURLToPath } from "url";
+import { SocksProxyAgent } from "socks-proxy-agent";
 
 const API_BASE = "https://api.bgm.tv";
+const SOCKS_PROXY = process.env.SOCKS_PROXY || "";
+
+let socksAgent = null;
+if (SOCKS_PROXY) {
+	socksAgent = new SocksProxyAgent(SOCKS_PROXY);
+	console.log(`Using proxy: ${SOCKS_PROXY}`);
+}
+
+function httpsFetch(url, options = {}) {
+	return new Promise((resolve, reject) => {
+		const req = https.get(
+			url,
+			{
+				agent: socksAgent,
+				headers: {
+					"User-Agent": "Mizuki-Blog/1.0 (https://github.com/LyraVoid/Mizuki)",
+					"Content-Type": "application/json",
+					...options.headers,
+				},
+			},
+			(res) => {
+				res.setEncoding("utf-8");
+				const chunks = [];
+				res.on("data", (chunk) => chunks.push(chunk));
+				res.on("end", () => {
+					const data = chunks.join("");
+					if (!res.statusCode || res.statusCode >= 400) {
+						reject(new Error(`API Error ${res.statusCode}: ${data.substring(0, 200)}`));
+					} else {
+						try {
+							resolve(JSON.parse(data));
+						} catch {
+							resolve(data);
+						}
+					}
+				});
+			},
+		);
+		req.on("error", reject);
+	});
+}
+
 const CONFIG_PATH = path.join(
 	path.dirname(fileURLToPath(import.meta.url)),
 	"../src/config/siteConfig.ts",
@@ -72,23 +116,15 @@ async function getAccessTokenFromConfig() {
 	}
 }
 
-// 模拟延迟防止 API 限制
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 async function fetchSubjectDetail(subjectId, accessToken) {
 	try {
-		const headers = {
-			"Content-Type": "application/json",
-		};
+		const headers = {};
 		if (accessToken) {
 			headers["Authorization"] = `Bearer ${accessToken}`;
 		}
-
-		const response = await fetch(`${API_BASE}/v0/subjects/${subjectId}`, {
-			headers,
-		});
-		if (!response.ok) return null;
-		return await response.json();
+		return await httpsFetch(`${API_BASE}/v0/subjects/${subjectId}`, { headers });
 	} catch (error) {
 		return null;
 	}
@@ -125,28 +161,12 @@ async function fetchCollection(userId, type, accessToken) {
 	while (hasMore) {
 		const url = `${API_BASE}/v0/users/${userId}/collections?subject_type=2&type=${type}&limit=${limit}&offset=${offset}`;
 		try {
-			const headers = {
-				"Content-Type": "application/json",
-			};
+			const headers = {};
 			if (accessToken) {
 				headers["Authorization"] = `Bearer ${accessToken}`;
 			}
 
-			const response = await fetch(url, {
-				headers,
-			});
-
-			if (!response.ok) {
-				if (response.status === 404) {
-					console.log(
-						`   User ${userId} does not exist or has no data of this type.`,
-					);
-					return [];
-				}
-				throw new Error(`API Error ${response.status}`);
-			}
-
-			const data = await response.json();
+			const data = await httpsFetch(url, { headers });
 
 			if (data.data && data.data.length > 0) {
 				allData = [...allData, ...data.data];
@@ -162,12 +182,11 @@ async function fetchCollection(userId, type, accessToken) {
 				await delay(300);
 			}
 		} catch (e) {
-			console.error(`\nFetch failed (Type ${type}):`, e.message);
+			console.log(`\n  ${e.message}`);
 			hasMore = false;
 		}
 	}
 	console.log("");
-	console.log(`Raw data for type ${type}:`, JSON.stringify(allData, null, 2));
 	return allData;
 }
 

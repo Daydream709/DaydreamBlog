@@ -89,7 +89,9 @@
     "@types/sanitize-html": "^2.16.1",
     "glob": "^13.0.6",
     "postcss-import": "^16.1.1",
-    "postcss-nesting": "^14.0.0"
+    "postcss-nesting": "^14.0.0",
+    "socks-proxy-agent": "^10.1.0",
+    "undici": "^8.7.0"
   },
   "packageManager": "pnpm@11.5.3"
 }

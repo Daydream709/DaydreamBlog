@@ -83,6 +83,15 @@ export const ja: Translation = {
 	[Key.animeConfigBangumi]:
 		"src/config/siteConfig.tsファイルにBangumiのユーザーIDを設定してください",
 
+	[Key.animeDetailBack]: "戻る",
+	[Key.animeDetailRating]: "評価",
+	[Key.animeDetailDescription]: "概要",
+	[Key.animeDetailEpisodes]: "話数",
+	[Key.animeDetailProgress]: "進捗",
+	[Key.animeDetailStartDate]: "開始日",
+	[Key.animeDetailComment]: "コメント",
+
+
 	// 日記ページ
 	[Key.diarySubtitle]: "いつでも、どこでも生活を共有",
 	[Key.diaryNoResults]: "一致するモーメントはありません",

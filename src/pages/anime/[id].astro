@@ -16,7 +16,7 @@ export async function getStaticPaths() {
 	let animeList: AnimeItem[] = [];
 
 	if (siteConfig.anime?.mode === "local") {
-		animeList = localAnimeList;
+		animeList = localAnimeList as any[];
 	} else {
 		try {
 			const dataPath = path.join(

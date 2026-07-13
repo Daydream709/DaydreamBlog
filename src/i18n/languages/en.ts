@@ -58,7 +58,6 @@ export const en: Translation = {
 	[Key.publishedAt]: "Published at",
 	[Key.license]: "License",
 	[Key.anime]: "Anime",
-	[Key.book]: "Book",
 	[Key.diary]: "Diary",
 
 	// Anime Page
@@ -79,51 +78,19 @@ export const en: Translation = {
 		"Please check Bilibili configuration or network connection",
 	[Key.animeEmptyLocal]:
 		"Please add anime information in src/data/anime.ts file",
-	[Key.animeDetailBack]: "Back to List",
-	[Key.animeDetailRating]: "Rating",
-	[Key.animeDetailEpisodes]: "Episodes",
-	[Key.animeDetailProgress]: "Progress",
-	[Key.animeDetailDescription]: "Description",
-	[Key.animeDetailGenre]: "Genre",
-	[Key.animeDetailStartDate]: "Start Date",
-	[Key.animeDetailEndDate]: "End Date",
-	[Key.animeDetailComment]: "Comment",
-	[Key.animeDetailNotFound]: "Anime Not Found",
-	[Key.animeDetailNotFoundDesc]:
-		"Sorry, the anime information was not found.",
 	[Key.animeConfigBilibili]:
 		"Please set your Bilibili vmid in the src/config/siteConfig.ts file",
 	[Key.animeConfigBangumi]:
 		"Please set your Bangumi userId in the src/config/siteConfig.ts file",
 
-	// Book Detail Page
-	[Key.bookDetailBack]: "Back to List",
-	[Key.bookDetailRating]: "Rating",
-	[Key.bookDetailPages]: "Pages",
-	[Key.bookDetailProgress]: "Progress",
-	[Key.bookDetailDescription]: "Description",
-	[Key.bookDetailGenre]: "Genre",
-	[Key.bookDetailStartDate]: "Start Date",
-	[Key.bookDetailEndDate]: "End Date",
-	[Key.bookDetailNotFound]: "Book Not Found",
-	[Key.bookDetailNotFoundDesc]: "Sorry, the book information was not found.",
+	[Key.animeDetailBack]: "Back",
+	[Key.animeDetailRating]: "Rating",
+	[Key.animeDetailDescription]: "Description",
+	[Key.animeDetailEpisodes]: "Episodes",
+	[Key.animeDetailProgress]: "Progress",
+	[Key.animeDetailStartDate]: "Start Date",
+	[Key.animeDetailComment]: "Comment",
 
-	// Book Page
-	[Key.bookTitle]: "My Book List",
-	[Key.bookSubtitle]: "Record my reading journey",
-	[Key.bookStatusReading]: "Reading",
-	[Key.bookStatusCompleted]: "Completed",
-	[Key.bookStatusPlanned]: "Planned",
-	[Key.bookStatusOnHold]: "On Hold",
-	[Key.bookStatusDropped]: "Dropped",
-	[Key.bookFilterAll]: "All",
-	[Key.bookYear]: "Year",
-	[Key.bookAuthor]: "Author",
-	[Key.bookEmpty]: "No book data",
-	[Key.bookEmptyBangumi]:
-		"Please check Bangumi configuration or network connection",
-	[Key.bookEmptyLocal]:
-		"Please add book information in src/data/book.ts file",
 
 	// Diary Page
 	[Key.diarySubtitle]: "Share life, anytime, anywhere",

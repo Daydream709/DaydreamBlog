@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 import localAnimeList from "../data/anime";
+import { siteConfig } from "../config";
 import I18nKey from "../i18n/i18nKey";
 import { i18n } from "../i18n/translation";
 
@@ -20,6 +21,7 @@ export interface RawAnimeItem {
 }
 
 export interface AnimeItem {
+	id: number;
 	title: string;
 	cover: string;
 	link: string;
@@ -55,7 +57,7 @@ export function loadAnimeData(filename: string): AnimeItem[] {
 		const rawData = JSON.parse(fileContent) as RawAnimeItem[];
 
 		return rawData.map((item) => ({
-			title: item.title || "Unknown",
+			id: item.id || 0,			title: item.title || "Unknown",
 			cover: item.cover || "",
 			link: item.link || "",
 			status: item.status || "planned",
@@ -82,13 +84,13 @@ export function getAnimeSourceConfigs(): Record<string, AnimeSourceConfig> {
 		bilibili: {
 			type: "json",
 			filename: "bilibili-data.json",
-			fetchOnDev: undefined,
+			fetchOnDev: siteConfig.bilibili?.fetchOnDev,
 			emptyDescription: i18n(I18nKey.animeEmptyBilibili),
 		},
 		bangumi: {
 			type: "json",
 			filename: "bangumi-data.json",
-			fetchOnDev: undefined,
+			fetchOnDev: siteConfig.bangumi?.fetchOnDev,
 			emptyDescription: i18n(I18nKey.animeEmptyBangumi),
 		},
 	};

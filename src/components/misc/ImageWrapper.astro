@@ -1,0 +1,21 @@
+---
+export interface Props {
+  src: string;
+  alt: string;
+  class?: string;
+  loading?: "lazy" | "eager";
+}
+
+const { src, alt, class: className, loading = "lazy" } = Astro.props;
+---
+
+{
+  src.endsWith(".svg") || src.startsWith("data:") ? (
+    <img {src} {alt} class={className} loading={loading} />
+  ) : (
+    <picture>
+      <source srcset={src} />
+      <img {src} {alt} class={className} loading={loading} />
+    </picture>
+  )
+}

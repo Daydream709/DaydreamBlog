@@ -1,6 +1,8 @@
 allowBuilds:
+  '@parcel/watcher': true
   esbuild: true
   sharp: true
+  swup: true
   ttf2woff2: true
 minimumReleaseAgeExclude:
   - oddmisc
