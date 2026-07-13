@@ -1,42 +1,43 @@
 <script lang="ts">
-	import Icon from "@iconify/svelte";
-	import CoverImage from "../atoms/CoverImage.svelte";
-	import TrackInfo from "../atoms/TrackInfo.svelte";
-	import { i18n } from "../../../../i18n/translation";
-	import Key from "../../../../i18n/i18nKey";
-	import type { Song } from "../types";
+import Icon from "@iconify/svelte";
 
-	interface Props {
-		song: Song;
-		currentTime: number;
-		duration: number;
-		isPlaying: boolean;
-		isLoading: boolean;
-		size?: "mini" | "expanded";
-		showControls?: boolean;
-		showPlaylist?: boolean;
-		onCoverClick?: () => void;
-		onInfoClick?: () => void;
-		onHideClick?: () => void;
-		onExpandClick?: () => void;
-		onPlaylistClick?: () => void;
-	}
+import Key from "../../../../i18n/i18nKey";
+import { i18n } from "../../../../i18n/translation";
+import CoverImage from "../atoms/CoverImage.svelte";
+import TrackInfo from "../atoms/TrackInfo.svelte";
+import type { Song } from "../types";
 
-	let {
-		song,
-		currentTime,
-		duration,
-		isPlaying,
-		isLoading,
-		size = "mini",
-		showControls = false,
-		showPlaylist = false,
-		onCoverClick,
-		onInfoClick,
-		onHideClick,
-		onExpandClick,
-		onPlaylistClick,
-	}: Props = $props();
+interface Props {
+	song: Song;
+	currentTime: number;
+	duration: number;
+	isPlaying: boolean;
+	isLoading: boolean;
+	size?: "mini" | "expanded";
+	showControls?: boolean;
+	showPlaylist?: boolean;
+	onCoverClick?: () => void;
+	onInfoClick?: () => void;
+	onHideClick?: () => void;
+	onExpandClick?: () => void;
+	onPlaylistClick?: () => void;
+}
+
+const {
+	song,
+	currentTime,
+	duration,
+	isPlaying,
+	isLoading,
+	size = "mini",
+	showControls = false,
+	showPlaylist = false,
+	onCoverClick,
+	onInfoClick,
+	onHideClick,
+	onExpandClick,
+	onPlaylistClick,
+}: Props = $props();
 </script>
 
 <div

@@ -1,7 +1,52 @@
-import type { Song, RepeatMode } from "../types";
-import { LOCAL_PLAYLIST } from "../constants";
-import { i18n } from "../../../../i18n/translation";
 import Key from "../../../../i18n/i18nKey";
+import { i18n } from "../../../../i18n/translation";
+import { LOCAL_PLAYLIST } from "../constants";
+import type { RepeatMode, Song } from "../types";
+
+/**
+ * Meting API song response structure
+ * Based on https://github.com/metowolf/MetingJS
+ */
+interface MetingSong {
+	id?: number | string;
+	name?: string;
+	title?: string;
+	artist?: string;
+	author?: string;
+	duration?: number | string;
+	pic?: string;
+	url?: string;
+}
+
+/**
+ * Convert Meting API song to internal Song type
+ */
+function convertMetingSong(song: MetingSong): Song {
+	const title = song.name ?? song.title ?? i18n(Key.unknownSong);
+	const artist = song.artist ?? song.author ?? i18n(Key.unknownArtist);
+	let dur = song.duration ?? 0;
+	if (typeof dur === "string") {
+		dur = Number.parseInt(dur, 10);
+	}
+	if (dur > 10000) {
+		dur = Math.floor(dur / 1000);
+	}
+	if (!Number.isFinite(dur) || dur <= 0) {
+		dur = 0;
+	}
+
+	return {
+		id:
+			typeof song.id === "string"
+				? Number.parseInt(song.id, 10)
+				: (song.id ?? 0),
+		title,
+		artist,
+		cover: song.pic ?? "",
+		url: song.url ?? "",
+		duration: dur,
+	};
+}
 
 export interface PlaylistState {
 	playlist: Song[];
@@ -34,17 +79,18 @@ export function toggleRepeat(state: PlaylistState) {
 }
 
 export function previousSong(state: PlaylistState): number {
-	if (state.playlist.length <= 1) return state.currentIndex;
+	if (state.playlist.length <= 1) {
+		return state.currentIndex;
+	}
 	return state.currentIndex > 0
 		? state.currentIndex - 1
 		: state.playlist.length - 1;
 }
 
-export function nextSong(
-	state: PlaylistState,
-	autoPlay: boolean = true,
-): number {
-	if (state.playlist.length <= 1) return state.currentIndex;
+export function nextSong(state: PlaylistState, _autoPlay = true): number {
+	if (state.playlist.length <= 1) {
+		return state.currentIndex;
+	}
 
 	let newIndex: number;
 	if (state.isShuffled) {
@@ -61,7 +107,9 @@ export function nextSong(
 }
 
 export function playSong(state: PlaylistState, index: number): boolean {
-	if (index < 0 || index >= state.playlist.length) return false;
+	if (index < 0 || index >= state.playlist.length) {
+		return false;
+	}
 	state.currentIndex = index;
 	return true;
 }
@@ -76,7 +124,9 @@ export async function fetchMetingPlaylist(
 	onLoadEnd: () => void,
 	showError: (message: string) => void,
 ): Promise<void> {
-	if (!meting_api || !meting_id) return;
+	if (!meting_api || !meting_id) {
+		return;
+	}
 
 	onLoadStart();
 	const apiUrl = meting_api
@@ -88,25 +138,13 @@ export async function fetchMetingPlaylist(
 
 	try {
 		const res = await fetch(apiUrl);
-		if (!res.ok) throw new Error("meting api error");
-		const list = await res.json();
-		state.playlist = list.map((song: any) => {
-			let title = song.name ?? song.title ?? i18n(Key.unknownSong);
-			let artist = song.artist ?? song.author ?? i18n(Key.unknownArtist);
-			let dur = song.duration ?? 0;
-			if (dur > 10000) dur = Math.floor(dur / 1000);
-			if (!Number.isFinite(dur) || dur <= 0) dur = 0;
-			return {
-				id: song.id,
-				title,
-				artist,
-				cover: song.pic ?? "",
-				url: song.url ?? "",
-				duration: dur,
-			};
-		});
+		if (!res.ok) {
+			throw new Error("meting api error");
+		}
+		const list: MetingSong[] = await res.json();
+		state.playlist = list.map(convertMetingSong);
 		onLoadEnd();
-	} catch (e) {
+	} catch (_e) {
 		showError(i18n(Key.musicPlayerErrorPlaylist));
 		onLoadEnd();
 	}
