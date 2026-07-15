@@ -101,7 +101,7 @@ export const siteConfig: SiteConfig = {
 		position: "center", // 图片对齐方式："top"|"center"|"bottom"
 		carousel: {
 			enable: true, // 启用轮播
-			interval: 3, // 轮播间隔（秒）
+			interval: 5, // 轮播间隔（秒）
 			switchable: true, // 是否允许用户切换
 		},
 		waves: {
@@ -116,12 +116,12 @@ export const siteConfig: SiteConfig = {
 		},
 		homeText: {
 			enable: true, // 主页横幅显示自定义文字
-			title: "Title-test", // 主标题
+			title: "Welcome to Daydream's Blog", // 主标题
 			switchable: true, // 是否允许用户切换
-			subtitle: ["test1", "test2", "test3", "test4", "test5"],
+			subtitle: ["test1"],
 			typewriter: {
 				enable: true, // 打字机效果
-				speed: 80, // 打字速度（ms）
+				speed: 70, // 打字速度（ms）
 				deleteSpeed: 40, // 删除速度（ms）
 				pauseTime: 5000, // 暂停时间（ms）
 			},

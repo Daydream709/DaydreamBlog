@@ -80,6 +80,16 @@ function loadCollectionNames(collection) {
 	}
 }
 
+// ============================================================
+// 手动图标白名单
+// 如果你要用但源码扫描不到的新图标，在这里添加即可。
+// 格式：{ "集合名": ["图标名1", "图标名2"] }
+// 例如：{ "material-symbols": ["library-books", "auto-stories"] }
+// ============================================================
+const MANUAL_ICONS = {
+	"material-symbols": ["library-books", "auto-stories", "menu-book", "book-2", "collections-bookmark"],
+};
+
 /**
  * @returns {Record<string, string[]>} astro-icon `include` map, e.g.
  *   { "material-symbols": ["home", "search"], "mdi": ["github"] }
@@ -100,6 +110,16 @@ export function buildIconInclude() {
 
 	/** @type {Record<string, string[]>} */
 	const include = {};
+
+	// 合并手动白名单
+	for (const [collection, names] of Object.entries(MANUAL_ICONS)) {
+		if (found.has(collection)) {
+			for (const name of names) {
+				found.get(collection).add(name);
+			}
+		}
+	}
+
 	for (const [collection, names] of found) {
 		if (names.size === 0) {
 			continue;
