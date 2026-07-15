@@ -2,18 +2,18 @@ import type { ProfileConfig } from "../types/config";
 
 // 个人资料配置
 export const profileConfig: ProfileConfig = {
-	avatar: "assets/images/avatar.webp", // 相对于 /src 目录。如果以 '/' 开头，则相对于 /public 目录
-	name: "Daydream",
-	bio: "Good morning.",
+	avatar: "assets/images/avatar.webp", // 头像路径（相对于 /src，以 / 开头则相对于 /public）
+	name: "Daydream", // 显示名称
+	bio: "Good morning.", // 个人简介
 	typewriter: {
-		enable: false, // 启用个人简介打字机效果
-		speed: 80, // 打字速度（毫秒）
+		enable: false, // 打字机效果
+		speed: 80, // 打字速度（ms）
 	},
 	links: [
 		{
-			name: "Bilibili",
-			icon: "fa7-brands:bilibili",
-			url: "https://space.bilibili.com/701864046",
+			name: "Bilibili", // 显示名称
+			icon: "fa7-brands:bilibili", // Iconify 图标
+			url: "https://space.bilibili.com/701864046", // 链接地址
 		},
 		{
 			name: "Gitee",
