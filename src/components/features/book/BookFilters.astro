@@ -1,0 +1,48 @@
+---
+interface Props {
+	filterAllLabel: string;
+	statusReadingLabel: string;
+	statusPlannedLabel: string;
+	statusCompletedLabel: string;
+	statusOnHoldLabel?: string;
+	statusDroppedLabel?: string;
+	showExtendedFilters: boolean;
+}
+
+const {
+	filterAllLabel,
+	statusReadingLabel,
+	statusPlannedLabel,
+	statusCompletedLabel,
+	statusOnHoldLabel,
+	statusDroppedLabel,
+	showExtendedFilters,
+} = Astro.props;
+---
+
+<div class="book-filter-container flex flex-wrap gap-2">
+	<button class="book-filter-tag book-active" data-status="all"
+		>{filterAllLabel}</button
+	>
+	<button class="book-filter-tag" data-status="reading"
+		>{statusReadingLabel}</button
+	>
+	<button class="book-filter-tag" data-status="planned"
+		>{statusPlannedLabel}</button
+	>
+	<button class="book-filter-tag" data-status="completed"
+		>{statusCompletedLabel}</button
+	>
+	{
+		showExtendedFilters && (
+			<>
+				<button class="book-filter-tag" data-status="onhold">
+					{statusOnHoldLabel}
+				</button>
+				<button class="book-filter-tag" data-status="dropped">
+					{statusDroppedLabel}
+				</button>
+			</>
+		)
+	}
+</div>

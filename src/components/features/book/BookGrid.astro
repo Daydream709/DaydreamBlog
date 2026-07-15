@@ -1,0 +1,96 @@
+---
+import BookCard from "./BookCard.astro";
+
+interface StatusInfo {
+	text: string;
+	class: string;
+	icon: string;
+}
+
+interface BookItem {
+	id: number;
+	title: string;
+	cover: string;
+	status: string;
+	rating: number;
+	progress: number;
+	totalPages: number;
+	description: string;
+	year: string;
+	author: string;
+	genre: string[];
+}
+
+interface Props {
+	visibleBookList: BookItem[];
+	hiddenBookList: BookItem[];
+	statusMap: Record<string, StatusInfo>;
+	yearLabel: string;
+	authorLabel: string;
+}
+
+const { visibleBookList, hiddenBookList, statusMap, yearLabel, authorLabel } =
+	Astro.props;
+---
+
+<div
+	id="book-list-container"
+	class="book-grid-container grid gap-4 md:gap-6 opacity-0 transition-opacity duration-300"
+>
+	{
+		visibleBookList.map((book) => {
+			const statusInfo = statusMap[book.status] || {
+				text: book.status,
+				class:
+					"bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300",
+				icon: "?",
+			};
+
+			return (
+				<BookCard
+					book={book}
+					statusInfo={statusInfo}
+					yearLabel={yearLabel}
+					authorLabel={authorLabel}
+				/>
+			);
+		})
+	}
+</div>
+
+{
+	hiddenBookList.length > 0 && (
+		<template id="book-lazy-store">
+			{
+				hiddenBookList.map((book) => {
+					const statusInfo = statusMap[book.status] || {
+						text: book.status,
+						class:
+							"bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300",
+						icon: "?",
+					};
+
+					return (
+						<BookCard
+							book={book}
+							statusInfo={statusInfo}
+							yearLabel={yearLabel}
+							authorLabel={authorLabel}
+						/>
+					);
+				})
+			}
+		</template>
+	)
+}
+
+{
+	hiddenBookList.length > 0 && (
+		<div
+			id="infinite-scroll-sentinel"
+			class="w-full h-20 flex items-center justify-center mt-8"
+		>
+			<div class="book-loading-spinner w-8 h-8 border-4 border-(--primary) border-t-transparent rounded-full animate-spin" />
+		</div>
+	)
+}

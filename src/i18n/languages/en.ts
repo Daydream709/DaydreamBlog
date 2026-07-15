@@ -1,30 +1,25 @@
 import Key from "../i18nKey";
 import type { Translation } from "../translation";
-
 export const en: Translation = {
 	[Key.home]: "Home",
 	[Key.about]: "About",
 	[Key.archive]: "Archive",
 	[Key.search]: "Search",
 	[Key.other]: "Other",
-
 	// Navigation bar titles
 	[Key.navLinks]: "Links",
 	[Key.navMy]: "My",
 	[Key.navAbout]: "About",
 	[Key.navOthers]: "Others",
-
 	[Key.tags]: "Tags",
 	[Key.categories]: "Categories",
 	[Key.recentPosts]: "Recent Posts",
 	[Key.postList]: "Post List",
 	[Key.tableOfContents]: "Table of Contents",
 	[Key.tocEmpty]: "No table of contents",
-
 	// Announcement
 	[Key.announcement]: "Announcement",
 	[Key.announcementClose]: "Close",
-
 	[Key.comments]: "Comments",
 	[Key.friends]: "Friends",
 	[Key.friendsSubtitle]: "Discover more great websites",
@@ -38,28 +33,22 @@ export const en: Translation = {
 	[Key.untitled]: "Untitled",
 	[Key.uncategorized]: "Uncategorized",
 	[Key.noTags]: "No Tags",
-
 	[Key.wordCount]: "word",
 	[Key.wordsCount]: "words",
 	[Key.minuteCount]: "minute",
 	[Key.minutesCount]: "minutes",
 	[Key.postCount]: "post",
 	[Key.postsCount]: "posts",
-
 	[Key.themeColor]: "Theme Color",
-
 	[Key.lightMode]: "Light",
 	[Key.darkMode]: "Dark",
 	[Key.systemMode]: "System",
-
 	[Key.more]: "More",
-
 	[Key.author]: "Author",
 	[Key.publishedAt]: "Published at",
 	[Key.license]: "License",
 	[Key.anime]: "Anime",
 	[Key.diary]: "Diary",
-
 	// Anime Page
 	[Key.animeTitle]: "My Anime List",
 	[Key.animeSubtitle]: "Record my anime journey",
@@ -82,33 +71,20 @@ export const en: Translation = {
 		"Please set your Bilibili vmid in the src/config/siteConfig.ts file",
 	[Key.animeConfigBangumi]:
 		"Please set your Bangumi userId in the src/config/siteConfig.ts file",
-
-	[Key.animeDetailBack]: "Back",
-	[Key.animeDetailRating]: "Rating",
-	[Key.animeDetailDescription]: "Description",
-	[Key.animeDetailEpisodes]: "Episodes",
-	[Key.animeDetailProgress]: "Progress",
-	[Key.animeDetailStartDate]: "Start Date",
-	[Key.animeDetailComment]: "Comment",
-
-
 	// Diary Page
 	[Key.diarySubtitle]: "Share life, anytime, anywhere",
 	[Key.diaryNoResults]: "No matching moments",
 	[Key.diaryCount]: "entries",
-
 	[Key.diaryTips]: "Only show the latest 30 diary entries",
 	[Key.diaryMinutesAgo]: "minutes ago",
 	[Key.diaryHoursAgo]: "hours ago",
 	[Key.diaryDaysAgo]: "days ago",
-
 	// 404 Page
 	[Key.notFound]: "404",
 	[Key.notFoundTitle]: "Page Not Found",
 	[Key.notFoundDescription]:
 		"Sorry, the page you visited does not exist or has been moved.",
 	[Key.backToHome]: "Back to Home",
-
 	// Music Player
 	[Key.musicPlayer]: "Music Player",
 	[Key.musicPlayerShow]: "Show Music Player",
@@ -132,7 +108,6 @@ export const en: Translation = {
 	[Key.musicPlayerErrorEmpty]: "No available songs in playlist",
 	[Key.unknownSong]: "Unknown Song",
 	[Key.unknownArtist]: "Unknown Artist",
-
 	// Albums Page
 	[Key.albums]: "Albums",
 	[Key.albumsSubtitle]: "Record beautiful moments in life",
@@ -140,7 +115,6 @@ export const en: Translation = {
 	[Key.albumsEmptyDesc]:
 		"No albums have been created yet. Go add some beautiful memories!",
 	[Key.albumsBackToList]: "Back to Albums",
-
 	// Devices Page
 	[Key.devices]: "My Devices",
 	[Key.devicesSubtitle]: "Here are the devices I use in my daily life",
@@ -149,7 +123,6 @@ export const en: Translation = {
 	[Key.albumsPhotosCount]: "photos",
 	[Key.albumsFilterAll]: "All",
 	[Key.albumsNoResults]: "No matching albums",
-
 	// Projects Page
 	[Key.projects]: "Projects",
 	[Key.projectsSubtitle]: "My development project portfolio",
@@ -176,7 +149,6 @@ export const en: Translation = {
 	[Key.projectsSource]: "Source Code",
 	[Key.projectsVisit]: "Visit Project",
 	[Key.projectsGitHub]: "GitHub",
-
 	// RSS Page
 	[Key.rss]: "RSS Feed",
 	[Key.rssDescription]: "Subscribe to get latest updates",
@@ -198,7 +170,6 @@ export const en: Translation = {
 		"It is recommended to use Feedly, Inoreader or other RSS readers to subscribe to this site.",
 	[Key.rssCopied]: "RSS link copied to clipboard!",
 	[Key.rssCopyFailed]: "Copy failed, please copy the link manually",
-
 	// Atom Page
 	[Key.atom]: "Atom Feed",
 	[Key.atomDescription]: "Subscribe to get latest updates",
@@ -220,13 +191,11 @@ export const en: Translation = {
 		"It is recommended to use Feedly, Inoreader or other Atom readers to subscribe to this site.",
 	[Key.atomCopied]: "Atom link copied to clipboard!",
 	[Key.atomCopyFailed]: "Copy failed, please copy the link manually",
-
 	// Wallpaper mode
 	[Key.wallpaperBanner]: "Banner Mode",
 	[Key.wallpaperFullscreen]: "Fullscreen Mode",
 	[Key.wallpaperOverlay]: "Overlay Mode",
 	[Key.wallpaperNone]: "Hide Wallpaper",
-
 	// Settings panel
 	[Key.settingsPanel]: "Settings",
 	[Key.wallpaperSettings]: "Wallpaper",
@@ -251,7 +220,6 @@ export const en: Translation = {
 	[Key.settingsBanner]: "Banner Options",
 	[Key.settingsEffects]: "Effects",
 	[Key.settingsLayout]: "Layout",
-
 	// Skills Page
 	[Key.skills]: "Skills",
 	[Key.skillsSubtitle]: "My technical skills and expertise",
@@ -279,7 +247,6 @@ export const en: Translation = {
 	[Key.skillsByLevel]: "By Level",
 	[Key.skillsByCategory]: "By Category",
 	[Key.noData]: "No data",
-
 	// AI Tools (About page)
 	[Key.aiTools]: "AI Tools I Use",
 	[Key.aiToolsSubtitle]:
@@ -299,7 +266,6 @@ export const en: Translation = {
 	[Key.aiToolsUsage]: "Usage",
 	[Key.aiToolsVisit]: "Visit",
 	[Key.aiToolsNoResults]: "No matching AI tools",
-
 	// Timeline Page
 	[Key.timeline]: "Timeline",
 	[Key.timelineSubtitle]: "My growth journey and important milestones",
@@ -320,7 +286,6 @@ export const en: Translation = {
 	[Key.timelineAchievements]: "Achievements",
 	[Key.timelineStartDate]: "Start Date",
 	[Key.timelineDuration]: "Duration",
-
 	// Password Protection
 	[Key.passwordProtected]: "Password Protected",
 	[Key.passwordProtectedTitle]: "This content is password protected",
@@ -344,7 +309,6 @@ export const en: Translation = {
 	[Key.autoSyntaxHighlightFailed]: "Automatic syntax highlighting also failed:",
 	[Key.decryptionError]: "An error occurred during decryption:",
 	[Key.passwordHint]: "Hint",
-
 	// Last Modified Time Card
 	[Key.lastModifiedPrefix]: "Time since last edit: ",
 	[Key.lastModifiedOutdated]: "Some information may be outdated",
@@ -354,7 +318,6 @@ export const en: Translation = {
 	[Key.hour]: "h",
 	[Key.minute]: "min",
 	[Key.second]: "s",
-
 	// Site Stats
 	[Key.siteStats]: "Site Statistics",
 	[Key.siteStatsPostCount]: "Posts",
@@ -365,7 +328,6 @@ export const en: Translation = {
 	[Key.siteStatsLastUpdate]: "Last Activity",
 	[Key.siteStatsDaysAgo]: "{days} days ago",
 	[Key.siteStatsDays]: "{days} days",
-
 	// Calendar Component
 	[Key.calendarSunday]: "Sun",
 	[Key.calendarMonday]: "Mon",
@@ -386,7 +348,6 @@ export const en: Translation = {
 	[Key.calendarOctober]: "Oct",
 	[Key.calendarNovember]: "Nov",
 	[Key.calendarDecember]: "Dec",
-
 	// Share Functionality
 	[Key.shareArticle]: "Share",
 	[Key.generatingPoster]: "Generating poster...",
@@ -397,24 +358,48 @@ export const en: Translation = {
 	[Key.shareOnSocial]: "Share",
 	[Key.shareOnSocialDescription]:
 		"If this article helped you, please share it with others!",
-
 	// Profile Stats
 	[Key.profileStatsLoading]: "Loading stats...",
 	[Key.profileStatsPageViews]: "Page views",
 	[Key.profileStatsVisits]: "Visits",
 	[Key.profileStatsUnavailable]: "Stats unavailable",
-
 	// Page Views Stats
 	[Key.pageViewsLoading]: "Loading stats...",
 	[Key.pageViewsUnavailable]: "Stats unavailable",
-
 	// Layout Switch Button
 	[Key.switchToGridMode]: "Switch to Grid Mode",
 	[Key.switchToListMode]: "Switch to List Mode",
-
 	// Related Posts & Random Posts
 	[Key.relatedPosts]: "Related Posts",
 	[Key.randomPosts]: "Random Posts",
 	[Key.smartRecommend]: "Smart",
 	[Key.randomRecommend]: "Random",
+
+
+	[Key.book]: "Book",
+	[Key.bookTitle]: "My Reading List",
+	[Key.bookSubtitle]: "Tracking my reading journey",
+	[Key.bookStatusReading]: "Reading",
+	[Key.bookStatusCompleted]: "Completed",
+	[Key.bookStatusPlanned]: "Planned",
+	[Key.bookStatusOnHold]: "On Hold",
+	[Key.bookStatusDropped]: "Dropped",
+	[Key.bookFilterAll]: "All",
+	[Key.bookYear]: "Year",
+	[Key.bookAuthor]: "Author",
+	[Key.bookEmpty]: "No books found",
+	[Key.bookEmptyBangumi]: "Please check your Bangumi config or network connection",
+	[Key.bookEmptyLocal]: "Please add book info in src/data/book.ts",
+	[Key.bookDetailBack]: "Back",
+	[Key.bookDetailRating]: "Rating",
+	[Key.bookDetailPages]: "Pages",
+	[Key.bookDetailProgress]: "Progress",
+	[Key.bookDetailDescription]: "Description",
+	[Key.bookDetailGenre]: "Genre",
+	[Key.bookDetailStartDate]: "Start Date",
+	[Key.bookDetailEndDate]: "End Date",
+	[Key.bookDetailNotFound]: "Book Not Found",
+	[Key.bookDetailNotFoundDesc]: "Sorry, the requested book could not be found.",
+
+
 };

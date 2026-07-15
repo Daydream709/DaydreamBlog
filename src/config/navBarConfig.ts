@@ -182,9 +182,9 @@ export const navBarConfig: NavBarConfig = {
 					icon: "material-symbols:photo-library",
 				},
 				{
-					name: "Devices",
-					url: "/devices/",
-					icon: "material-symbols:devices",
+					name: "Book",
+					url: "/book/",
+					icon: "material-symbols:book-2-outline-rounded",
 					external: false, // 内部链接，当前页导航
 				},
 			],

@@ -83,15 +83,6 @@ export const ja: Translation = {
 	[Key.animeConfigBangumi]:
 		"src/config/siteConfig.tsファイルにBangumiのユーザーIDを設定してください",
 
-	[Key.animeDetailBack]: "戻る",
-	[Key.animeDetailRating]: "評価",
-	[Key.animeDetailDescription]: "概要",
-	[Key.animeDetailEpisodes]: "話数",
-	[Key.animeDetailProgress]: "進捗",
-	[Key.animeDetailStartDate]: "開始日",
-	[Key.animeDetailComment]: "コメント",
-
-
 	// 日記ページ
 	[Key.diarySubtitle]: "いつでも、どこでも生活を共有",
 	[Key.diaryNoResults]: "一致するモーメントはありません",
@@ -420,4 +411,32 @@ export const ja: Translation = {
 	[Key.randomPosts]: "ランダムな投稿",
 	[Key.smartRecommend]: "スマート",
 	[Key.randomRecommend]: "ランダム",
+
+	[Key.book]: "書籍",
+	[Key.bookTitle]: "読書リスト",
+	[Key.bookSubtitle]: "読書の記録",
+	[Key.bookStatusReading]: "読書中",
+	[Key.bookStatusCompleted]: "読了",
+	[Key.bookStatusPlanned]: "読みたい",
+	[Key.bookStatusOnHold]: "中断",
+	[Key.bookStatusDropped]: "放棄",
+	[Key.bookFilterAll]: "すべて",
+	[Key.bookYear]: "年",
+	[Key.bookAuthor]: "著者",
+	[Key.bookEmpty]: "書籍データがありません",
+	[Key.bookEmptyBangumi]: "Bangumi の設定またはネットワーク接続を確認してください",
+	[Key.bookEmptyLocal]: "src/data/book.ts に書籍情報を追加してください",
+	[Key.bookDetailBack]: "戻る",
+	[Key.bookDetailRating]: "評価",
+	[Key.bookDetailPages]: "ページ",
+	[Key.bookDetailProgress]: "進捗",
+	[Key.bookDetailDescription]: "概要",
+	[Key.bookDetailGenre]: "ジャンル",
+	[Key.bookDetailStartDate]: "開始日",
+	[Key.bookDetailEndDate]: "終了日",
+	[Key.bookDetailNotFound]: "書籍が見つかりません",
+	[Key.bookDetailNotFoundDesc]: "申し訳ございません、該当する書籍が見つかりませんでした。",
+
+
+
 };

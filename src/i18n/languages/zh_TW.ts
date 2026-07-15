@@ -85,16 +85,33 @@ export const zh_TW: Translation = {
 	[Key.animeConfigBangumi]:
 		"請在 src/config/siteConfig.ts 檔案中設定您的 Bangumi userId",
 
-	[Key.animeDetailBack]: "返回",
-	[Key.animeDetailRating]: "評分",
-	[Key.animeDetailDescription]: "簡介",
-	[Key.animeDetailEpisodes]: "集數",
-	[Key.animeDetailProgress]: "進度",
-	[Key.animeDetailStartDate]: "開始日期",
-	[Key.animeDetailComment]: "評論",
+		// 书籍页面
+	[Key.book]: "書籍",
+	[Key.bookTitle]: "我的閱讀記錄",
+	[Key.bookSubtitle]: "記錄我的閱讀之旅",
+	[Key.bookStatusReading]: "在讀",
+	[Key.bookStatusCompleted]: "已讀",
+	[Key.bookStatusPlanned]: "想讀",
+	[Key.bookStatusOnHold]: "擱置",
+	[Key.bookStatusDropped]: "拋棄",
+	[Key.bookFilterAll]: "全部",
+	[Key.bookYear]: "年份",
+	[Key.bookAuthor]: "作者",
+	[Key.bookEmpty]: "暫無書籍數據",
+	[Key.bookEmptyBangumi]: "請檢查 Bangumi 設定或網路連線",
+	[Key.bookEmptyLocal]: "請在 src/data/book.ts 文件中添加書籍信息",
+	[Key.bookDetailBack]: "返回列表",
+	[Key.bookDetailRating]: "評分",
+	[Key.bookDetailPages]: "頁數",
+	[Key.bookDetailProgress]: "閱讀進度",
+	[Key.bookDetailDescription]: "簡介",
+	[Key.bookDetailGenre]: "類型",
+	[Key.bookDetailStartDate]: "開始日期",
+	[Key.bookDetailEndDate]: "結束日期",
+	[Key.bookDetailNotFound]: "書籍未找到",
+	[Key.bookDetailNotFoundDesc]: "抱歉，未找到該書籍的資訊。",
 
-
-	// 短文頁面
+// 短文頁面
 	[Key.diarySubtitle]: "隨時隨地，分享生活",
 	[Key.diaryNoResults]: "沒有匹配的日記",
 	[Key.diaryCount]: "條日記",
