@@ -11,14 +11,16 @@ export interface DiaryItem {
 	tags?: string[];
 }
 
-// 示例日记数据
+// 日记数据（静态模式；若配置了 siteConfig.diaryApiUrl 则改用 Memos 动态数据）
 const diaryData: DiaryItem[] = [
 	{
 		id: 1,
 		content:
-			"The falling speed of cherry blossoms is five centimeters per second!",
-		date: "2025-01-15T10:30:00Z",
-		images: ["/images/diary/sakura.jpg", "/images/diary/1.webp"],
+			"博客上线了。从 Mizuki 主题折腾了几天，把该改的地方都改完，以后就在这里记录学习笔记、追番感想和生活琐事。",
+		date: "2026-07-16T20:00:00+08:00",
+		location: "家里",
+		mood: "开心",
+		tags: ["博客"],
 	},
 ];
 

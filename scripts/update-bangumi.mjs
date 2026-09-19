@@ -101,6 +101,10 @@ async function getAnimeModeFromConfig() {
 }
 
 async function getAccessTokenFromConfig() {
+	// 优先读取环境变量，避免把 Access Token 明文提交到仓库
+	if (process.env.BANGUMI_ACCESS_TOKEN) {
+		return process.env.BANGUMI_ACCESS_TOKEN;
+	}
 	try {
 		const configContent = await fs.readFile(CONFIG_PATH, "utf-8");
 		const match = configContent.match(
@@ -304,6 +308,24 @@ async function main() {
 		await fs.access(dir);
 	} catch {
 		await fs.mkdir(dir, { recursive: true });
+	}
+
+	// 云构建（Vercel/CI）网络受限时 fetchCollection 会静默失败并返回空数组，
+	// 此时保留仓库里已有的数据文件，避免把番剧/书籍页清空。
+	if (finalAnimeList.length === 0) {
+		let hasExistingData = false;
+		try {
+			const existing = JSON.parse(await fs.readFile(OUTPUT_FILE, "utf-8"));
+			hasExistingData = Array.isArray(existing) && existing.length > 0;
+		} catch {
+			hasExistingData = false;
+		}
+		if (hasExistingData) {
+			console.warn(
+				"⚠ No data fetched (network blocked or API error). Keeping existing bangumi-data.json unchanged.",
+			);
+			return;
+		}
 	}
 
 	await fs.writeFile(OUTPUT_FILE, JSON.stringify(finalAnimeList, null, 2));

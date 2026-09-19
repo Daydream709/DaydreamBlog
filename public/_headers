@@ -1,3 +1,6 @@
+# Cloudflare Pages 自定义响应头（构建时会从 public/ 复制到 dist/ 并被 Pages 解析）
+# 语法：第一行为路径模式，随后缩进写 Header；`! Header-Name` 表示先移除（含更宽泛规则已设置的同名头）
+
 /atom.xml
   Access-Control-Allow-Origin: *
   Access-Control-Allow-Methods: GET
@@ -10,20 +13,12 @@
 
 /*
   Cache-Control: public, max-age=3600, must-revalidate
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
 
+# Astro 构建产物文件名带内容哈希，可安全长期缓存
 /_astro/*
-  ! Cache-Control
-  Cache-Control: public, max-age=31536000, immutable
-
-/assets/*
-  ! Cache-Control
-  Cache-Control: public, max-age=31536000, immutable
-
-/pio/*
-  ! Cache-Control
-  Cache-Control: public, max-age=31536000, immutable
-
-/images/*
   ! Cache-Control
   Cache-Control: public, max-age=31536000, immutable
 

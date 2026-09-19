@@ -5,14 +5,14 @@ const SITE_LANG = "zh_CN"; // 可选：'en' | 'zh_CN' | 'zh_TW' | 'ja' | 'ko' | 
 
 export const siteConfig: SiteConfig = {
 	title: "DaydreamBlog", // 站点标题
-	subtitle: "testsiteconfig", // 站点副标题
-	siteURL: "https://mizuki.mysqil.com/", // 站点URL，以斜杠结尾
+	subtitle: "学习笔记 · 漫评 · 生活琐事", // 站点副标题
+	siteURL: "https://daydreamblog.pages.dev/", // 站点URL，以斜杠结尾（Cloudflare Pages 默认域名，改项目名或绑自定义域名后需同步修改）
 	siteStartDate: "2026-07-16", // 站点开始运行日期（用于统计运行天数）
 
 	lang: SITE_LANG,
 
 	themeColor: {
-		hue: 345, // 主题色色相 0-360（红:0 青:200 蓝紫:250 粉:345）
+		hue: 320, // 主题色色相 0-360（红:0 青:200 蓝紫:250 粉:345）
 		fixed: false, // true=隐藏主题色选择器，false=允许访客自定义
 	},
 
@@ -33,8 +33,8 @@ export const siteConfig: SiteConfig = {
 	navbarTitle: {
 		mode: "text-icon", // 显示模式："text-icon"=图标+文字，"logo"=仅Logo
 		text: "DaydreamBlog", // 顶栏标题文本
-		icon: "assets/home/home.png", // 标题图标（相对于 /public）
-		logo: "assets/home/default-logo.png", // 网站Logo
+		icon: "assets/home/D.ico", // 标题图标（相对于 /public）
+		logo: "assets/home/default-logo.webp", // 网站Logo
 	},
 
 	pageScaling: {
@@ -49,7 +49,7 @@ export const siteConfig: SiteConfig = {
 	},
 
 	bilibili: {
-		vmid: "your-bilibili-vmid", // Bilibili 用户UID
+		vmid: "391278548", // Bilibili 用户UID（仅 anime.mode="bilibili" 时使用）
 		fetchOnDev: false, // 开发环境下是否拉取 Bilibili 数据
 		coverMirror: "", // 封面图镜像源（可选）
 		useWebp: true, // 是否使用 WebP 格式
@@ -116,9 +116,13 @@ export const siteConfig: SiteConfig = {
 		},
 		homeText: {
 			enable: true, // 主页横幅显示自定义文字
-			title: "Welcome to Daydream's Blog", // 主标题
+			title: "欢迎来到 Daydream 的博客", // 主标题
 			switchable: true, // 是否允许用户切换
-			subtitle: ["test1"],
+			subtitle: [
+				"在代码与番剧之间反复横跳",
+				"记录学习、追番与生活",
+				"偶尔读书，偶尔折腾",
+			], // 副标题（打字机轮播）
 			typewriter: {
 				enable: true, // 打字机效果
 				speed: 70, // 打字速度（ms）
@@ -127,9 +131,9 @@ export const siteConfig: SiteConfig = {
 			},
 		},
 		credit: {
-			enable: false, // 显示横幅图片来源
-			text: "Describe",
-			url: "",
+			enable: false, // 显示横幅图片来源（换成自己的照片后可开启）
+			text: "Daydream", // 图片来源署名
+			url: "", // 图片来源链接，留空则不跳转
 		},
 		navbar: {
 			transparentMode: "semifull", // 导航栏透明："semi"|"full"|"semifull"
@@ -157,6 +161,7 @@ export const siteConfig: SiteConfig = {
 	thirdPartyAnalytics: {
 		enable: false, // 启用 Microsoft Clarity 统计
 		clarityId: "", // Clarity 项目ID
+		gtmId: "", // Google Tag Manager 容器ID（如 "GTM-XXXXXX"）。留空=不注入任何统计脚本
 	},
 	card: {
 		border: true, // 卡片边框和阴影

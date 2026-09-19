@@ -1,10 +1,10 @@
 {
-	"title": "Some lovely pictures",
+	"title": "ACG 壁纸收藏",
 	"hidden": false,
-	"description": "The world is vast, and you have to go explore it.",
-	"date": "2025-08-01",
+	"description": "模板自带的示例壁纸，之后会替换成自己的图片。",
+	"date": "2026-07-16",
 	"location": "Bilibili",
-	"tags": ["Kawai", "Cute", "Moe"],
+	"tags": ["ACG", "壁纸", "示例"],
 	"layout": "masonry",
 	"columns": 3
 }

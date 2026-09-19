@@ -18,11 +18,11 @@ interface Props {
 	};
 }
 
-const {
-	gtmId = "GTM-KRX3XGVH",
-	thirdPartyAnalytics = { enable: false, clarityId: "" },
-} = Astro.props;
+const { gtmId = "", thirdPartyAnalytics = { enable: false, clarityId: "" } } =
+	Astro.props;
 
+// GTM 仅在显式配置了容器 ID 时才注入
+const gtmEnable = Boolean(gtmId);
 const clarityEnable =
 	thirdPartyAnalytics.enable && thirdPartyAnalytics.clarityId;
 ---
@@ -31,6 +31,7 @@ const clarityEnable =
 <script
 	is:inline
 	define:vars={{
+		gtmEnable,
 		gtmId,
 		clarityEnable,
 		clarityId: thirdPartyAnalytics.clarityId || "",
@@ -46,19 +47,21 @@ const clarityEnable =
 			}
 			window.analyticsLoaded = true;
 
-			// Google Tag Manager
-			(function (w, d, s, l, i) {
-				w[l] = w[l] || [];
-				w[l].push({
-					"gtm.start": new Date().getTime(),
-					event: "gtm.js",
-				});
-				const f = d.getElementsByTagName(s)[0],
-					j = d.createElement(s);
-				j.async = true;
-				j.src = "https://www.googletagmanager.com/gtm.js?id=" + i;
-				f.parentNode.insertBefore(j, f);
-			})(window, document, "script", "dataLayer", gtmId);
+			// Google Tag Manager（仅在配置了 gtmId 时加载）
+			if (gtmEnable && gtmId) {
+				(function (w, d, s, l, i) {
+					w[l] = w[l] || [];
+					w[l].push({
+						"gtm.start": new Date().getTime(),
+						event: "gtm.js",
+					});
+					const f = d.getElementsByTagName(s)[0],
+						j = d.createElement(s);
+					j.async = true;
+					j.src = "https://www.googletagmanager.com/gtm.js?id=" + i;
+					f.parentNode.insertBefore(j, f);
+				})(window, document, "script", "dataLayer", gtmId);
+			}
 
 			// Clarity (仅在启用时加载)
 			if (clarityEnable && clarityId) {

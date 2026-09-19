@@ -2,7 +2,7 @@ import type { ProfileConfig } from "../types/config";
 
 // 个人资料配置
 export const profileConfig: ProfileConfig = {
-	avatar: "assets/images/avatar.webp", // 头像路径（相对于 /src，以 / 开头则相对于 /public）
+	avatar: "assets/images/avatar.png", // 头像路径（相对于 /src，以 / 开头则相对于 /public）
 	name: "Daydream", // 显示名称
 	bio: "Good morning.", // 个人简介
 	typewriter: {

@@ -1,49 +1,36 @@
 
-This website is built with the **Astro** framework using the [Mizuki](https://github.com/LyraVoid/Mizuki) theme.
-
-::github{repo="LyraVoid/Mizuki"}
-
-## 🌟 Theme Features
-
-### 🎨 Design & User Experience
-- **Modern & Elegant Design** - Clean, minimalist interface with beautiful typography
-- **Fully Responsive** - Optimized for all devices from mobile to desktop
-- **Dark/Light Mode** - Automatic theme switching with smooth transitions
-- **Beautiful Typography** - Enhanced readability with JetBrains Mono font
-- **Smooth Animations** - Fluid page transitions and interactive elements
-
-### 🔍 Content & Search
-- **Advanced Search** - Powered by [Pagefind](https://pagefind.app/) for fast, accurate results
-- **Enhanced Markdown** - Extended syntax with code highlighting and math support
-- **Interactive Table of Contents** - Auto-scroll navigation for long articles
-- **RSS Feed Generation** - Stay updated with automatic feed generation
-- **Reading Time Estimation** - Know how long articles take to read
-- **Post Categorization** - Organize content with tags and categories
 
 
+::github{repo="Daydream709/DaydreamBlog"}
 
-### 📱 Special Pages
-- **Anime Tracking Page** - Track your anime watching progress with ratings
-- **Friends Links Page** - Showcase friend websites with beautiful cards
-- **Diary/Moments Page** - Share life moments like social media posts
-- **Archive Page** - Organized timeline view of all posts
-- **About Page** - Customizable personal introduction (this page!)
+## 🧑‍💻 关于我
 
-### 🛠 Technical Features
-- **Enhanced Code Blocks** - Powered by [Expressive Code](https://expressive-code.com/)
-- **Math Support** - LaTeX rendering with KaTeX for mathematical expressions
-- **Image Optimization** - PhotoSwipe gallery with lazy loading
-- **SEO Optimized** - Built-in sitemap and meta tags for better search visibility
-- **Performance Optimized** - Fast loading with caching and optimization
-- **Comment System Ready** - Integration support for Twikoo comments
+我是 **Daydream**，一名开发者，喜欢：
 
-### 🎯 Advanced Markdown Features
-- **Callouts & Admonitions** - Beautiful info boxes with `> [!NOTE]`, `> [!TIP]`, `> [!WARNING]`
-- **Mathematical Equations** - Write LaTeX math with `$inline$` and `$$block$$` syntax
-- **GitHub Cards** - Embed repository cards with `::github{repo="user/repo"}`
-- **Syntax Highlighting** - Advanced code highlighting with line numbers
-- **Copy Code Buttons** - Easy code copying functionality
+- 💻 **写代码** — 折腾项目
+- 📺 **看番** — 追番列表一直在膨胀，想看的番增长速度大于看番的速度
+- 🎮 **打游戏** — RPG、FPS...
+
+## 🏗️ 关于这个博客
+
+这个博客的初衷是记录一些学习笔记、漫评和生活琐事。本站目前主要包含以下功能页面：
+
+| 页面     | 说明                               |
+| -------- | ---------------------------------- |
+| **文章** | 技术分享、学习笔记、随笔           |
+| **番剧** | 追番记录和评分（数据来自 Bangumi） |
+| **书籍** | 阅读记录（数据来自 Bangumi）       |
+| **日记** | 生活记录                           |
+| **相册** | 图片留档                           |
+| **归档** | 文章时间线                         |
+
+## 🔗 联系我
+
+- **GitHub**: [Daydream709](https://github.com/Daydream709)
+- **Outlook**: [Daydream709@outlook.com](mailto:Daydream709@outlook.com)
 
 ---
 
-*Built with ❤️ using Astro and inspired by modern web design principles.*
+*欢迎*
+
+> 这是基于 **Astro** 框架、使用 [Mizuki](https://github.com/LyraVoid/Mizuki) 主题构建的个人博客。

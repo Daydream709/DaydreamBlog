@@ -1,8 +1,9 @@
 name: Deploy to Pages Branch
 
+# ⚠ 本项目已改用 Cloudflare Pages 部署（见 docs/CLOUDFLARE.md），此工作流默认不再随 push 自动运行，
+#   仅保留作为 GitHub Pages 的备用方案。如需使用，在仓库 Settings → Pages 中
+#   将 Source 设为 “Deploy from a branch: pages / (root)” 后手动触发。
 on:
-  push:
-    branches: [ master ]
   workflow_dispatch:
 
 permissions:
@@ -21,7 +22,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
           
       - name: Setup pnpm
         uses: pnpm/action-setup@v4

@@ -33,3 +33,5 @@ This project is developed based on the secondary development of [Mizuki](https:/
   http://www.apache.org/licenses/LICENSE-2.0
 - MIT License
   https://opensource.org/licenses/MIT
+
+Details in [MODIFICATIONS](docs/MODIFICATIONS.md)。
