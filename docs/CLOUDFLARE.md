@@ -108,6 +108,17 @@ pnpm exec astro build && pnpm exec pagefind --site dist
 **换了图片/横幅但访客看到旧图**
 到 Cloudflare 控制台对应域名 → Caching → Configuration → **Purge Everything**。
 
+**Deploy 报错：`[ERR_PNPM_IGNORED_BUILDS] Ignored build scripts: workerd`**
+
+`npx wrangler deploy` 临时安装的 `wrangler` 依赖 `workerd`（本地运行时），它有个 postinstall 脚本被仓库 `pnpm-workspace.yaml` 的 `allowBuilds` 白名单拦下了。**已修复**：白名单里加了 `workerd: true`。
+
+**构建时 Bangumi API 返回 502 Bad Gateway**
+
+这是 Bangumi 服务端临时故障或 Cloudflare IP 被风控，**不是配置错误**。脚本有保护：拉不到数据时会保留仓库里已有的 `bangumi-data.json` / `book-data.json`，站点不会变空。处理方式：
+1. 在 Cloudflare 控制台 → Deployments → 找到该次部署 → **Retry deployment**（502 通常几分钟内自愈）
+2. 若反复 502，把 Build command 改为跳过数据拉取：`pnpm exec astro build && pnpm exec pagefind --site dist`，数据改为本地 `pnpm update-anime && pnpm update-book` 后提交
+
+
 **想回滚**
 Pages 项目 → **Deployments** → 选择历史部署 → **Rollback**。
 

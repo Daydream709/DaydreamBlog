@@ -5,7 +5,7 @@ import { fileURLToPath } from "url";
 const API_BASE = "https://api.bgm.tv";
 const CONFIG_PATH = path.join(
 	path.dirname(fileURLToPath(import.meta.url)),
-	"../src/config.ts",
+	"../src/config/siteConfig.ts",
 );
 const OUTPUT_FILE = path.join(
 	path.dirname(fileURLToPath(import.meta.url)),
@@ -27,15 +27,15 @@ async function getUserIdFromConfig() {
 				!userId
 			) {
 				console.warn(
-					"Warning: userId in src/config.ts appears to be a default value.",
+					"Warning: userId in src/config/siteConfig.ts appears to be a default value.",
 				);
 				return userId;
 			}
 			return userId;
 		}
-		throw new Error("Could not find bangumi.userId in config.ts");
+		throw new Error("Could not find bangumi.userId in siteConfig.ts");
 	} catch (error) {
-		console.error("✘ Failed to read Bangumi ID from config.ts");
+		console.error("✘ Failed to read Bangumi ID from siteConfig.ts");
 		throw error;
 	}
 }
@@ -57,6 +57,10 @@ async function getBookModeFromConfig() {
 }
 
 async function getAccessTokenFromConfig() {
+	// 优先读取环境变量，避免把 Access Token 明文提交到仓库
+	if (process.env.BANGUMI_ACCESS_TOKEN) {
+		return process.env.BANGUMI_ACCESS_TOKEN;
+	}
 	try {
 		const configContent = await fs.readFile(CONFIG_PATH, "utf-8");
 		const match = configContent.match(
@@ -303,6 +307,24 @@ async function main() {
 		await fs.access(dir);
 	} catch {
 		await fs.mkdir(dir, { recursive: true });
+	}
+
+	// 云构建（Cloudflare/CI）网络受限时 fetchCollection 会静默失败并返回空数组，
+	// 此时保留仓库里已有的数据文件，避免把书籍页清空。
+	if (finalBookList.length === 0) {
+		let hasExistingData = false;
+		try {
+			const existing = JSON.parse(await fs.readFile(OUTPUT_FILE, "utf-8"));
+			hasExistingData = Array.isArray(existing) && existing.length > 0;
+		} catch {
+			hasExistingData = false;
+		}
+		if (hasExistingData) {
+			console.warn(
+				"⚠ No data fetched (network blocked or API error). Keeping existing book-data.json unchanged.",
+			);
+			return;
+		}
 	}
 
 	await fs.writeFile(OUTPUT_FILE, JSON.stringify(finalBookList, null, 2));

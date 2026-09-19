@@ -4,6 +4,7 @@ allowBuilds:
   sharp: true
   swup: true
   ttf2woff2: true
+  workerd: true
 minimumReleaseAgeExclude:
   - oddmisc
   - '@astrojs/*'
